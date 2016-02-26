@@ -3,7 +3,7 @@
 } 
 
 .navbar-default {
-    background:linear-gradient(#78fB46, #78AB46);
+    background:linear-gradient(#78fB46, #526F35);
     border-color:#08a054;
     color:#b1ffd0;
 }
@@ -29,7 +29,7 @@
     padding-right:10px;
     text-align:left;
     color:white;
-    background:linear-gradient(#78AB46, #78fB46);
+    background:linear-gradient(#526F35, #78fB46);
     float:left;
     position: fixed;
     top:7%;
@@ -41,7 +41,7 @@
 #asideRight {
     text-align:center;
     color:white;
-    background:linear-gradient(#78AB46, #78fB46);
+    background:linear-gradient(#526F35, #78fB46);
     float:right;
     position: fixed;
     top:7%;
@@ -58,7 +58,7 @@
     bottom: 0;
     position: fixed;
     top:92%;
-    background:linear-gradient(#78fB46, #78AB46);
+    background:linear-gradient(#78fB46, #526F35);
 
 }
 
@@ -97,7 +97,6 @@
 
 #horizontalPics li 
 {
-    color:#08a024;
     display: inline;
     list-style-type: none;
 }
@@ -114,4 +113,18 @@
 .centered-form .panel{
 	background: rgba(255, 255, 255, 0.8);
 	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
+
+.Banner {
+    color:white;
+    padding:10px;
+    background-color:#78fB46;
+    border-radius:25px;
+}
+
+.BannerBIG {
+    color:white;
+    padding:1px;
+    background-color:#78fB46;
+    border-radius:25px;
 }
