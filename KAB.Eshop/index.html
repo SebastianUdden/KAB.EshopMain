@@ -26,9 +26,17 @@
                     <a class="navbar-brand" href="/">KAB<span class="glyphicon glyphicon-home"></span></a>
                 </div>
 
+                <div ng-controller="headerController">
+                    <div class="nav navbar-nav navbar-left">
+                        <div class="col-md-6 col-md-offset-3">
+                            <input class="FullField" type="text" ng-model="searchResult" /><a href="#/search-results" class="btn btn-primary"><span style="clear:both" class="glyphicon glyphicon-search"></span></a>
+                        </div>
+                    </divclass="nav>
+                </div>
+
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-globe"></span>Nyheter</a></li>
-                    <li><a href="#/kundvagn"><span class="glyphicon glyphicon-shopping-cart"></span>Kundvagn</a></li>
+                    <li><a href="#/shopping-cart"><span class="glyphicon glyphicon-shopping-cart"></span>Kundvagn</a></li>
                     <li><a href="#/dev-links"><span class="glyphicon glyphicon-link"></span>Länkar</a></li>
                     <li><a href="#/sign-up"><span class="glyphicon glyphicon-user"></span>Registrering</a></li>
                     <li><a href="#/log-in"><span class="glyphicon glyphicon-log-in"></span>Inloggning</a></li>
@@ -36,15 +44,7 @@
             </div>
         </nav>
     </header>
-    <div ng-controller="headerController">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div>
-                    <input class="FullField" type="text" ng-model="searchResult" /><a href="#/search-results" class="btn btn-primary"><span style="clear:both" class="glyphicon glyphicon-search"></span></a>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <div class="container">
         <div ng-view>
         </div>

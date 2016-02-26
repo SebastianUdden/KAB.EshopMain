@@ -1,3 +1,25 @@
 ﻿.FullField {
     width:95%;
 } 
+
+.navbar-default {
+    background-color:#08a024;
+    border-color:#08a054;
+    color:#b1ffd0;
+}
+
+.nav.navbar-nav.navbar-right li a {
+    color: white;
+}
+
+.nav.navbar-nav.navbar-right li a:hover {
+    color:#b1ffd0;
+}
+
+.navbar-default .navbar-brand {
+    color:white;
+}
+
+.navbar-default .navbar-brand:hover {
+    color:#b1ffd0;
+}

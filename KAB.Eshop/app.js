@@ -21,6 +21,11 @@ eShopApp.config(function($routeProvider) {
         templateUrl: 'pages/devLinks.html',
         controller: 'devLinksController'
     })
+
+    .when('/shopping-cart', {
+        templateUrl: 'pages/shoppingCart.html',
+        controller: 'shoppingCartController'
+    })
 });
 
 eShopApp.service('cityService', function() {
@@ -47,5 +52,9 @@ eShopApp.controller('searchQueryController', ['$scope', '$resource', 'cityServic
 }]);
 
 eShopApp.controller('devLinksController', ['$scope', '$resource', 'cityService', function ($scope, $resource, cityService) {
+    $scope.searchResult = cityService.searchResult;
+}]);
+
+eShopApp.controller('shoppingCartController', ['$scope', '$resource', 'cityService', function ($scope, $resource, cityService) {
     $scope.searchResult = cityService.searchResult;
 }]);
