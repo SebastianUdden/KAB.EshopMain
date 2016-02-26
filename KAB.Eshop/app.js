@@ -36,6 +36,11 @@ eShopApp.config(function($routeProvider) {
         templateUrl: 'pages/userRegister.html',
         controller: 'userRegisterController'
     })
+
+    .when('/iterations', {
+        templateUrl: 'pages/iterations.html',
+        controller: 'iterationsController'
+    })
 });
 
 eShopApp.service('shopService', function() {
@@ -68,4 +73,7 @@ eShopApp.controller('shoppingCartController', ['$scope', '$resource', 'shopServi
 }]);
 
 eShopApp.controller('userRegisterController', ['$scope', '$resource', 'shopService', function ($scope, $resource, shopService) {
+}]);
+
+eShopApp.controller('iterationsController', ['$scope', '$resource', 'shopService', function ($scope, $resource, shopService) {
 }]);
