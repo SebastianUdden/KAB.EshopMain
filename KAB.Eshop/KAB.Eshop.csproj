@@ -113,6 +113,8 @@
     <Content Include="Pages\admin.html" />
     <Content Include="Pages\devLinks.html" />
     <Content Include="Pages\home.html" />
+    <Content Include="Pages\userLogin.html" />
+    <Content Include="Pages\userRegister.html" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Pages\searchResults.html" />
