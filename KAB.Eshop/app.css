@@ -23,3 +23,39 @@
 .navbar-default .navbar-brand:hover {
     color:#b1ffd0;
 }
+
+#asideLeft {
+    font-size: 20px;
+    padding-right:10px;
+    text-align:left;
+    color:white;
+    background-color:#08a024;
+    float:left;
+    position: fixed;
+    top:7%;
+    left:0;
+    right:85%;
+    bottom:10%;
+}
+
+#asideRight {
+    text-align:center;
+    color:white;
+    background-color:#08a024;
+    float:right;
+    position: fixed;
+    top:7%;
+    right:0;
+    left:90%;
+    bottom:10%;
+}
+
+.noBullets
+{
+    list-style-type: none;
+}
+
+.noBullets li:hover
+{
+    color:#b1ffd0;
+}
