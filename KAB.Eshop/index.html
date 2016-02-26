@@ -20,38 +20,57 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="/">KAB <span class="glyphicon glyphicon-home"></span></a>
-                </div>
+                
 
                 <div ng-controller="headerController">
-                    <div class="nav navbar-nav navbar-left">
-
-                        <div class="col-md-6 col-md-offset-3">
-                            <input class="FullField" type="text" ng-model="searchResult" /><a href="#/search-results" class="btn btn-primary"><span style="clear:both" class="glyphicon glyphicon-search"></span></a>
+                    <div id="wrapper">
+                        <br />
+                        <div class="nav navbar-nav navbar-left">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="/" style="font-size:40px">KAB <span class="glyphicon glyphicon-home"></span></a>
+                            </div>
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-model="searchResult" />
+                                    <span class="input-group-btn">
+                                        <a href="#/search-results" class="btn btn-primary">
+                                            <span style="clear:both" class="glyphicon glyphicon-search"></span>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Nyheter</a></li>
-                    <li><a href="#/shopping-cart"><span class="glyphicon glyphicon-shopping-cart"></span> Kundvagn</a></li>
-                    <li><a href="#/dev-links"><span class="glyphicon glyphicon-link"></span> Länkar</a></li>
-                    <li><a href="#/user-sign-up"><span class="glyphicon glyphicon-user"></span> Registrering</a></li>
-                    <li><a href="#/user-log-in"><span class="glyphicon glyphicon-log-in"></span> Inloggning</a></li>
-                </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Nyheter</a></li>
+                        <li><a href="#/shopping-cart"><span class="glyphicon glyphicon-shopping-cart"></span> Kundvagn</a></li>
+                        <li><a href="#/dev-links"><span class="glyphicon glyphicon-link"></span> Länkar</a></li>
+                        <li><a href="#/user-sign-up"><span class="glyphicon glyphicon-user"></span> Registrering</a></li>
+                        <li><a href="#/user-log-in"><span class="glyphicon glyphicon-log-in"></span> Inloggning</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
-    
+
     <div class="container">
+        <br />
+        <br />
+        <br />
+        <br />
         <div ng-view>
         </div>
     </div>
 
     <div id="asideLeft">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <ul class="noBullets">
             <li><span class="glyphicon glyphicon-envelope"></span> Kuvert/Brevpapper</li>
             <li><span class="glyphicon glyphicon-pencil"></span> Pennor</li>
@@ -65,6 +84,7 @@
     <div id="asideRight">
     </div>
     <div id="footer">
+        <br />
         <br />
         Häftapparatsgatan 7, Gemträsk
     </div>
