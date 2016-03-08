@@ -7,6 +7,14 @@ namespace EshopMVC.Models
 {
     public class DataManager
     {
-        //test
+        CustomerContext context;
+
+        public DataManager(CustomerContext context)
+        {
+            this.context = context;
+        }
+
+
+
     }
 }
