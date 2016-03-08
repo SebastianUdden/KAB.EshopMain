@@ -1,5 +1,58 @@
-﻿<form ng-submit="onSubmit()"
+﻿@model CreateCustomerViewModel
+
+<h1>Register</h1>
+<div asp-validation-summary="ValidationSummary.All"></div>
+
+<form asp-controller="Home" asp-action="Create">
+    <label asp-for="FirstName"></label>
+    <br />
+    <input asp-for="FirstName" placeholder="Firstname" />
+    <br />
+    <span asp-validation-for="FirstName"></span>
+    <br />
+
+    <label asp-for="LastName"></label>
+    <br />
+    <input asp-for="LastName" placeholder="Lastname" />
+    <br />
+    <span asp-validation-for="LastName"></span>
+    <br />
+
+    <label asp-for="Email"></label>
+    <br />
+    <input asp-for="Email" placeholder="Email" />
+    <br />
+    <span asp-validation-for="Email"></span>
+    <br />
+
+    <label asp-for="Password"></label>
+    <br />
+    <input asp-for="Password" placeholder="Password" />
+    <br />
+    <span asp-validation-for="Password"></span>
+    <br />
+
+    <label asp-for="Adress"></label>
+    <br />
+    <input asp-for="Adress" placeholder="Password" />
+    <br />
+    <span asp-validation-for="Adress"></span>
+    <br />
+
+    <label asp-for="Ssn"></label>
+    <br />
+    <input asp-for="Ssn" placeholder="Password" />
+    <br />
+    <span asp-validation-for="Ssn"></span>
+    <br />
+
+    <input type="submit" value="Create" />
+</form>
+
+
+@*<form ng-submit="onSubmit()"
       novalidate="novalidate">
+
     <div class="form-group">
         <label for="name">Name</label>
         <input type="text"
@@ -16,18 +69,6 @@
                id="email"
                required="required"
                name="email" />
-    </div>
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text"
-               class="form-control"
-               ng-model="formModel.username"
-               ng-pattern="/^[A-Za-z0-9_]{1,32}$/"
-               ng-minlength="7"
-               ng-maxlength="20"
-               id="username"
-               ng-pattern-err-type="badUsername"
-               required="required" />
     </div>
     <div class="form-group">
         <label for="age">Age</label>
@@ -64,7 +105,17 @@
                required="required" />
     </div>
     <div class="form-group">
+        <label for="password">Confirm Password</label>
+        <input type="password"
+               class="form-control"
+               ng-model="formModel.password"
+               ng-minlength="10"
+               ng-maxlength="40"
+               id="password"
+               required="required" />
+    </div>
+    <div class="form-group">
         <button class="btn btn-primary" type="submit">Register</button>
     </div>
 </form>
-<pre>{{ formModel | json }}</pre>
+<pre>{{ formModel | json }}</pre>*@
