@@ -7,5 +7,6 @@ namespace EshopMVC.Models
 {
     public class DataManager
     {
+        //test
     }
 }
