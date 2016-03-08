@@ -29,5 +29,21 @@ namespace EshopMVC.Models
             context.SaveChanges();
         }
 
+        public Customer GetCustomer()
+        {
+            //this needs testing, *should* return a customer object from the database
+            var Customer = context.Customers.Select(x => new Customer
+            {
+                Id = x.Id,
+                FirstName = x.FirstName,
+                LastName = x.LastName,
+                Email = x.Email,
+                Password = x.Password,
+                Adress = x.Adress,
+                Ssn = x.Ssn
+            });
+            return (Customer)Customer;
+        }
+
     }
 }
