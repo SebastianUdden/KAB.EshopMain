@@ -29,7 +29,7 @@ namespace EshopMVC.Models
             context.SaveChanges();
         }
 
-        public Customer GetCustomer()
+        public Customer GetCustomer(int id)
         {
             //this needs testing, *should* return a customer object from the database
             var Customer = context.Customers.Select(x => new Customer
@@ -41,7 +41,7 @@ namespace EshopMVC.Models
                 Password = x.Password,
                 Adress = x.Adress,
                 Ssn = x.Ssn
-            });
+            }).Where(x => x.Id == id);
             return (Customer)Customer;
         }
 
