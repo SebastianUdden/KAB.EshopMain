@@ -12,10 +12,10 @@ namespace EshopMVC.Controllers
 {
     public class ProductsController : Controller
     {
-        ProductContext context;
+        ProductContext Context;
         public ProductsController(ProductContext context)
         {
-            this.context = context;
+            this.Context = context;
         }
         // GET: /<controller>/
         public IActionResult Index()
@@ -36,10 +36,10 @@ namespace EshopMVC.Controllers
                 return View(viewModel);
             }
 
-            var productDataManager = new ProductDataManager(context);
+            var productDataManager = new ProductDataManager(Context);
             productDataManager.AddProduct(viewModel);
 
-            return RedirectToAction(nameof(HomeController.Index));
+            return RedirectToAction(nameof(ProductsController.Index));
         }
     }
 }

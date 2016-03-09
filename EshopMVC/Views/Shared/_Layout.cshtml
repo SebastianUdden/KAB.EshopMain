@@ -29,45 +29,52 @@
 <body>
     <header>
         <nav class="navbar navbar-default navbar-fixed-top">
-                <div class="container">
-                    @*<div ng-controller="headerController">*@
-                        <div id="wrapper">
-                            <br />
-                            <div class="nav navbar-nav navbar-left">
-                                <div class="navbar-header">
-                                    <a class="navbar-brand" href="/" style="font-size:40px">KAB <span class="glyphicon glyphicon-home"></span></a>
-                                </div>
-                                <div class="col-md-6 col-md-offset-3">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" ng-model="searchResult" />
-                                        <span class="input-group-btn">
-                                            <a href="#/search-results" class="btn btn-primary">
-                                                <span style="clear:both" class="glyphicon glyphicon-search"></span>
-                                            </a>
-                                        </span>
-                                    </div>
+            <div class="container">
+
+                
+                <div ng-controller="headerController">
+                    <div id="wrapper">
+                        <br />
+                        <div class="nav navbar-nav navbar-left">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="/" style="font-size:40px">KAB <span class="glyphicon glyphicon-home"></span></a>
+                            </div>
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-model="searchResult" />
+                                    <span class="input-group-btn">
+                                        <a href="#/search-results" class="btn btn-primary">
+                                            <span style="clear:both" class="glyphicon glyphicon-search"></span>
+                                        </a>
+                                    </span>
                                 </div>
                             </div>
                         </div>
-
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Nyheter</a></li>
-                            <li><a href="#/shopping-cart"><span class="glyphicon glyphicon-shopping-cart"></span> Kundvagn</a></li>
-                            <li><a href="#/dev-links"><span class="glyphicon glyphicon-link"></span> Länkar</a></li>
-                            <li><a href="~/home/create"><span class="glyphicon glyphicon-user"></span> Registrering</a></li>
-                            <li><a href="~/home/index"><span class="glyphicon glyphicon-log-in"></span> Inloggning</a></li>
-                            <li><a href="#/iterations"><span class="glyphicon glyphicon-cog"></span> Utvecklingsfaser</a></li>
-                        </ul>
                     </div>
-                @*</div>*@
-            </nav>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Nyheter</a></li>
+                        <li><a href="#/shopping-cart"><span class="glyphicon glyphicon-shopping-cart"></span> Kundvagn</a></li>
+                        <li><a href="~/products/createproduct"><span class="glyphicon glyphicon-link"></span> Produktregistrering</a></li>
+                        <li><a href="~/home/create"><span class="glyphicon glyphicon-user"></span> Registrering</a></li>
+                        <li><a href="~/home/index"><span class="glyphicon glyphicon-log-in"></span> Inloggning</a></li>
+                        <li><a href="#/iterations"><span class="glyphicon glyphicon-cog"></span> Utvecklingsfaser</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
     <div class="container">
-        <br /><br /><br /><br />@*<br /><br />*@
+        <br /><br /><br /><br /><br /><br />
         @RenderBody()
     </div>
 
     <div id="asideLeft">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <ul class="noBullets">
             <li><span class="glyphicon glyphicon-envelope"></span> Kuvert</li>
             <li><span class="glyphicon glyphicon-pencil"></span> Pennor</li>

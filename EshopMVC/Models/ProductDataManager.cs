@@ -22,9 +22,10 @@ namespace EshopMVC.Models
             p.PictureLink = viewModel.ImageURL;
             p.ProductDescription = viewModel.ProductDescription;
             p.Stock = viewModel.AmountToAdd;
-            //p.CategoryId = viewModel.Category;
+            p.CategoryId = viewModel.Category;
 
             Context.Products.Add(p);
+            Context.SaveChanges();
 
         }
 
@@ -39,7 +40,7 @@ namespace EshopMVC.Models
                 Price = x.Price,
                 PictureLink = x.PictureLink,
                 Stock = x.Stock,
-                //CategoryId = x.CategoryId,
+                CategoryId = x.CategoryId,
             }).ToArray();
             return Product[0];
         }
@@ -55,8 +56,8 @@ namespace EshopMVC.Models
                 Price = x.Price,
                 PictureLink = x.PictureLink,
                 Stock = x.Stock,
-                //CategoryId = x.CategoryId,
-            })/*.Where(x => x.CategoryId == categoryId)*/.ToArray();
+                CategoryId = x.CategoryId,
+            }).Where(x => x.CategoryId == categoryId).ToArray();
             return Product;
         }
     }

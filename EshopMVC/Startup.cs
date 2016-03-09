@@ -23,6 +23,8 @@ namespace EshopMVC
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<CustomerContext>(o =>
+                o.UseSqlServer(connString))
+                .AddDbContext<ProductContext>(o =>
                 o.UseSqlServer(connString));
 
             services.AddMvc();
