@@ -13,6 +13,13 @@ namespace EshopMVC.Models
         public int Price { get; set; }
         public int Stock { get; set; }
         public string PictureLink { get; set; }
-        public int CategoryId { get; set; }
+        //public int CategoryId { get; set; }
+        public enum Category
+        {
+            Papper = 1,
+            Teknik,
+            Möbler,
+            Konsumptionsvaror
+        }
     }
 }

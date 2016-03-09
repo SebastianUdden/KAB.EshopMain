@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EshopMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,13 +19,8 @@ namespace EshopMVC.ViewModel
         public int Price { get; set; }
 
         //[Required(ErrorMessage = "Category is required")]
-        public enum Category
-        {
-            Papper = 1,
-            Teknik,
-            Möbler,
-            Konsumptionsvaror
-        }
+        [Range(1,int.MaxValue, ErrorMessage ="Välj en kategori")]
+        public Category Category { get; set; }
         public string ProductDescription { get; set; }
         [Required(ErrorMessage = "Need to add amount of product(s)")]
         public int AmountToAdd { get; set; }
