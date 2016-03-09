@@ -4,13 +4,6 @@
 <div asp-validation-summary="ValidationSummary.All"></div>
 
 <form asp-controller="Home" asp-action="CreateProduct">
-    <label asp-for="ProductID"></label>
-    <br />
-    <input asp-for="ProductID" placeholder="Produkt-ID" />
-    <br />
-    <span asp-validation-for="ProductID"></span>
-    <br />
-
     <label asp-for="ProductName"></label>
     <br />
     <input asp-for="ProductName" placeholder="Efternamn" />
@@ -25,7 +18,8 @@
     <span asp-validation-for="Price"></span>
     <br />
 
-    <label asp-for="Category"></label>
+    @Html.EnumDropDownListFor(model => model.Category)
+    <label asp-for=""></label>
     <br />
     <input asp-for="Category" placeholder="Produktkategori" />
     <br />
