@@ -19,8 +19,9 @@ namespace EshopMVC.ViewModel
         public int Price { get; set; }
 
         //[Required(ErrorMessage = "Category is required")]
-        [Range(1,int.MaxValue, ErrorMessage ="Välj en kategori")]
-        public Category Category { get; set; }
+        //[Range(1,int.MaxValue, ErrorMessage ="Välj en kategori")]
+        [Required(ErrorMessage = "Category is required")]
+        public int Category { get; set; }
         public string ProductDescription { get; set; }
         [Required(ErrorMessage = "Need to add amount of product(s)")]
         public int AmountToAdd { get; set; }
