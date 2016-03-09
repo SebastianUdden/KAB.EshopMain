@@ -3,7 +3,7 @@
 <h1>Register</h1>
 <div asp-validation-summary="ValidationSummary.All"></div>
 
-<form asp-controller="Home" asp-action="Create">
+<form asp-controller="Home" asp-action="CreateProduct">
     <label asp-for="ProductID"></label>
     <br />
     <input asp-for="ProductID" placeholder="Produkt-ID" />
@@ -47,5 +47,5 @@
     <span asp-validation-for="ImageURL"></span>
     <br />
 
-    <input type="submit" value="Create" />
+    <input type="submit" value="CreateProduct" />
 </form>
