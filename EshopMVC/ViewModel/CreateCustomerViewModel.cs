@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+//using System.Web;
 
 namespace EshopMVC.ViewModel
 {
@@ -18,6 +19,9 @@ namespace EshopMVC.ViewModel
         [EmailAddress(ErrorMessage ="Email format is invalid")]
         public string Email { get; set; }
 
+        //[DataType(DataType.Password)]
+        //[StringLength(255, MinimumLength = 8)]
+        //[MembershipPassword()]
         [Required(ErrorMessage = "Password is required")]
         public string Password { get; set; }
 
