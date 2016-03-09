@@ -15,15 +15,14 @@ namespace EshopMVC.ViewModel
         public string ProductName { get; set; }
 
         [Required(ErrorMessage = "Product price must be set")]
-        public string Price { get; set; }
+        public int Price { get; set; }
 
         [Required(ErrorMessage = "Category is required")]
-        public string Category { get; set; }
-
+        public int Category { get; set; }
+        public string ProductDescription { get; set; }
         [Required(ErrorMessage = "Need to add amount of product(s)")]
-        public string AmountToAdd { get; set; }
+        public int AmountToAdd { get; set; }
 
-        [Required(ErrorMessage = "URL is required")]
         public string ImageURL { get; set; }
     }
 }
