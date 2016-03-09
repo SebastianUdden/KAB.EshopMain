@@ -42,8 +42,8 @@ namespace EshopMVC.Models
                 Password = x.Password,
                 Adress = x.Adress,
                 Ssn = x.Ssn
-            }).Where(x => x.Id == id);
-            return (Customer)Customer;
+            }).ToArray()/*.Where(x => x.Id == id)*/;
+            return Customer[0];
         }
 
         //product related methods
