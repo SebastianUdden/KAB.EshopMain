@@ -41,7 +41,7 @@ namespace EshopMVC.Models
                 PictureLink = x.PictureLink,
                 Stock = x.Stock,
                 CategoryId = x.CategoryId,
-            }).ToArray();
+            }).Where(x => x.Id == id).ToArray();
             return Product[0];
         }
 

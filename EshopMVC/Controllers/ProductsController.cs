@@ -50,10 +50,11 @@ namespace EshopMVC.Controllers
             return View(model);
         }
 
-        //public IActionResult Pens()
-        //{
-            
-        //    return View();
-        //}
+        public IActionResult Product(int id)
+        {
+            var productDataManager = new ProductDataManager(Context);
+            var model = productDataManager.GetProductById(id);
+            return View(model);
+        }
     }
 }
