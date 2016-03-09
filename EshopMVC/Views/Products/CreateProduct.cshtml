@@ -1,0 +1,51 @@
+﻿@model CreateProductViewModel
+
+<h1>Register</h1>
+<div asp-validation-summary="ValidationSummary.All"></div>
+
+<form asp-controller="Home" asp-action="Create">
+    <label asp-for="ProductID"></label>
+    <br />
+    <input asp-for="ProductID" placeholder="Produkt-ID" />
+    <br />
+    <span asp-validation-for="ProductID"></span>
+    <br />
+
+
+    <label asp-for="ProductName"></label>
+    <br />
+    <input asp-for="ProductName" placeholder="Efternamn" />
+    <br />
+    <span asp-validation-for="ProductName"></span>
+    <br />
+
+    <label asp-for="Price"></label>
+    <br />
+    <input asp-for="Price" placeholder="Pris" />
+    <br />
+    <span asp-validation-for="Price"></span>
+    <br />
+
+    <label asp-for="Category"></label>
+    <br />
+    <input asp-for="Category" placeholder="Produktkategori" />
+    <br />
+    <span asp-validation-for="Category"></span>
+    <br />
+
+    <label asp-for="AmountToAdd"></label>
+    <br />
+    <input asp-for="AmountToAdd" placeholder="Antal" />
+    <br />
+    <span asp-validation-for="AmountToAdd"></span>
+    <br />
+
+    <label asp-for="ImageURL"></label>
+    <br />
+    <input asp-for="ImageURL" placeholder="Bildens URL-adress" />
+    <br />
+    <span asp-validation-for="ImageURL"></span>
+    <br />
+
+    <input type="submit" value="Create" />
+</form>
