@@ -43,10 +43,10 @@ namespace EshopMVC.Controllers
         }
 
         //[HttpPost]
-        public IActionResult Pens()
+        public IActionResult Pens(int id)
         {
             var productDataManager = new ProductDataManager(Context);
-            var model = productDataManager.GetProductByCategory(2);
+            var model = productDataManager.GetProductByCategory(id);
             return View(model);
         }
 
