@@ -39,21 +39,24 @@ namespace EshopMVC.Controllers
         {
             return View();
         }
-        //[HttpPost]
-        //public IActionResult Login(LoginCustomerViewModel viewModel)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View(viewModel);
-        //    }
-        //    var dataManager = new DataManager(context);
-        //    var a = dataManager.GetCustomer(3);
-        //    Response.Cookies.Append("Hej",a.FirstName);
-        //    //var x = dataManager.GetCustomer(1);
-        //    //return RedirectToAction(nameof(CustomersController.Index));
-        //    return View(viewModel);
-        //    //return RedirectToAction(Index());
-        //}
+        [HttpPost]
+        public IActionResult Login(LoginCustomerViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
+            var dataManager = new DataManager(context);
+            var a = dataManager.GetCustomer(viewModel.Email);
+            if(a != null && a.Length>0)
+            {
+            Response.Cookies.Append("Hej", a.First().FirstName);
+            }
+            //var x = dataManager.GetCustomer(1);
+            //return RedirectToAction(nameof(CustomersController.Index));
+            return View(viewModel);
+            //return RedirectToAction(Index());
+        }
         public IActionResult Index()
         {
             return View();

@@ -30,7 +30,7 @@ namespace EshopMVC.Models
             Context.SaveChanges();
         }
 
-        public Customer GetCustomer(int id)
+        public Customer[] GetCustomer(string email)
         {
             //this needs testing, *should* return a customer object from the database
             var Customer = Context.Customers.Select(x => new Customer
@@ -42,8 +42,8 @@ namespace EshopMVC.Models
                 Password = x.Password,
                 Adress = x.Adress,
                 Ssn = x.Ssn
-            }).ToArray()/*.Where(x => x.Id == id)*/;
-            return Customer[0];
+            }).Where(x=>x.Email == email).ToArray()/*.Where(x => x.Id == id)*/;
+            return Customer;
         }
     }
 }
