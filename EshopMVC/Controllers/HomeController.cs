@@ -32,7 +32,7 @@ namespace EshopMVC.Controllers
             }
                 var dataManager = new DataManager(context);
                 dataManager.AddCustomer(viewModel);
-                var x = dataManager.GetCustomer(1);
+                //var x = dataManager.GetCustomer(1);
                 return RedirectToAction(nameof(HomeController.Index));
         }
         public IActionResult Index()
