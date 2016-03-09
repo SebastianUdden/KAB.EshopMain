@@ -25,6 +25,7 @@ namespace EshopMVC.Models
             p.CategoryId = viewModel.Category;
 
             Context.Products.Add(p);
+            Context.SaveChanges();
 
         }
 
