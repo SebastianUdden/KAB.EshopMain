@@ -27,6 +27,10 @@
     <script src="app.js"></script>
 </head>
 <body>
+    @if (Context.Request.Cookies.Count() > 0)
+    {
+        <p>Welcome @Context.Request.Cookies.Keys.Last().ToString()</p>
+    }
     <header>
         <div class="containerLeft">
             <nav class="navbar navbar-default">
@@ -49,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-
+                     
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Nyheter</a></li>
                         <li><a href="#/shopping-cart"><span class="glyphicon glyphicon-shopping-cart"></span> Kundvagn</a></li>
