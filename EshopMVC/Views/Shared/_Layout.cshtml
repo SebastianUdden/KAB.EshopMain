@@ -28,10 +28,8 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-
-                
+        <div class="containerLeft">
+            <nav class="navbar navbar-default">
                 <div ng-controller="headerController">
                     <div id="wrapper">
                         <br />
@@ -61,30 +59,118 @@
                         <li><a href="#/iterations"><span class="glyphicon glyphicon-cog"></span> Utvecklingsfaser</a></li>
                     </ul>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
+
     <div class="container">
         <br /><br /><br /><br /><br /><br />
         @RenderBody()
     </div>
 
-    <div id="asideLeft">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <ul class="noBullets">
-            <li><span class="glyphicon glyphicon-envelope"></span> Kuvert</li>
-            <li><span class="glyphicon glyphicon-pencil"></span> Pennor</li>
-            <li><span class="glyphicon glyphicon-paperclip"></span> Gem</li>
-            <li><span class="glyphicon glyphicon-book"></span> Böcker</li>
-            <li><span class="glyphicon glyphicon-calendar"></span> Kalendrar</li>
-            <li><span class="glyphicon glyphicon-pushpin"></span> Häftstift</li>
-            <li><span class="glyphicon glyphicon-wrench"></span> Dylikt & saxar</li>
-        </ul>
-    </div>
+    <nav class="navbar navbar-inverse sidebar-left" role="navigation">
+        <div class="container">
+            <div id="wrapper">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="~/products/pens"><span class="glyphicon glyphicon-pencil"></span> Pennor</a></li>
+                    <li><a href="~/products/papers"><span class="glyphicon glyphicon-envelope"></span> Papper</a></li>
+                    <li><a href="~/products/printers"><span class="glyphicon glyphicon-paperclip"></span> Skrivare</a></li>
+                    <li><a href="~/products/kitchen"><span class="glyphicon glyphicon-cutlery"></span> Kök</a></li>
+                    <li><a href="~/products/other"><span class="glyphicon glyphicon-globe"></span> Övrigt</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @*<div id="asideLeft">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="false">
+                            <span class="glyphicon glyphicon-pencil"></span> Pennor
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <span class="glyphicon glyphicon-pencil"></span> Pennor Sub
+                        <span class="glyphicon glyphicon-pencil"></span> Pennor Sub
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                            <span class="glyphicon glyphicon-envelope"></span> Papper
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <span class="glyphicon glyphicon-envelope"></span> Papper Sub
+                        <span class="glyphicon glyphicon-envelope"></span> Papper Sub
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                            <span class="glyphicon glyphicon-paperclip"></span> Skrivare
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <span class="glyphicon glyphicon-paperclip"></span> Skrivare Sub
+                        <span class="glyphicon glyphicon-paperclip"></span> Skrivare Sub
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                            <span class="glyphicon glyphicon-cutlery"></span> Kök
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <span class="glyphicon glyphicon-cutlery"></span> Kök Sub
+                        <span class="glyphicon glyphicon-cutlery"></span> Kök Sub
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                            <span class="glyphicon glyphicon-globe"></span> Övrigt
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <span class="glyphicon glyphicon-globe"></span> Övrigt Sub
+                        <span class="glyphicon glyphicon-globe"></span> Övrigt Sub
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    @*<ul class="noBullets">
+        <li><span class="glyphicon glyphicon-pencil"></span> Pennor</li>
+        <li><span class="glyphicon glyphicon-envelope"></span> Papper</li>
+        <li><span class="glyphicon glyphicon-paperclip"></span> Skrivare</li>
+        <li><span class="glyphicon glyphicon-cutlery"></span> Kök</li>
+        <li><span class="glyphicon glyphicon-globe"></span> Övrigt</li>
+        @*<li><span class="glyphicon glyphicon-pushpin"></span> Häftstift</li>
+        <li><span class="glyphicon glyphicon-wrench"></span> Dylikt & saxar</li>*@
+    @*</ul>*@
+    @*</div>*@
     <div id="asideRight">
     </div>
     <div id="footer">
