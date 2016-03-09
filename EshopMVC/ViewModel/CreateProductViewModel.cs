@@ -24,6 +24,7 @@ namespace EshopMVC.ViewModel
             Teknik,
             Möbler,
             Konsumptionsvaror
+
         }
         public string ProductDescription { get; set; }
         [Required(ErrorMessage = "Need to add amount of product(s)")]
