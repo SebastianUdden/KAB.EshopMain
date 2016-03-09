@@ -43,7 +43,7 @@ namespace EshopMVC.Controllers
         }
 
         //[HttpPost]
-        public IActionResult Pens(int id)
+        public IActionResult ProductCategory(int id)
         {
             var productDataManager = new ProductDataManager(Context);
             var model = productDataManager.GetProductByCategory(id);
