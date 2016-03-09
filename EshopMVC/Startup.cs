@@ -17,7 +17,8 @@ namespace EshopMVC
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var connString = @"Data Source = (localdb)\mssqllocaldb; Initial Catalog = KAB; Integrated Security = True; Pooling = False";
+            var connString = @"Data Source = kab.database.windows.net; Initial Catalog = KAB; Integrated Security = False; User ID = Kolumn3; Password = Samal073; Connect Timeout = 60; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
+            //var connString = @"Data Source = (localdb)\mssqllocaldb; Initial Catalog = KAB; Integrated Security = True; Pooling = False";
             //var connString = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Customers;Integrated Security=True;Pooling=False";
             services.AddEntityFramework()
                 .AddSqlServer()
