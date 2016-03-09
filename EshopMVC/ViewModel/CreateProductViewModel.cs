@@ -9,7 +9,6 @@ namespace EshopMVC.ViewModel
 {
     public class CreateProductViewModel
     {
-        [Required(ErrorMessage = "Product ID is required")]
         public string ProductID { get; set; }
 
         [Required(ErrorMessage = "Product name is required")]

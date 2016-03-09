@@ -39,7 +39,7 @@ namespace EshopMVC.Controllers
             var productDataManager = new ProductDataManager(Context);
             productDataManager.AddProduct(viewModel);
 
-            return RedirectToAction(nameof(HomeController.Index));
+            return RedirectToAction(nameof(ProductsController.Index));
         }
     }
 }
