@@ -15,6 +15,7 @@ namespace EshopMVC.Models
             this.context = context;
         }
 
+        //customer related methods
         public void AddCustomer(CreateCustomerViewModel viewModel)
         {
             Customer c = new Customer();
@@ -45,5 +46,11 @@ namespace EshopMVC.Models
             return (Customer)Customer;
         }
 
+        //product related methods
+        public void AddProduct()
+        {
+            Product p = new Product();
+            
+        }
     }
 }
