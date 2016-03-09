@@ -30,7 +30,7 @@
     <header>
         <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container">
-                    <div ng-controller="headerController">
+                    @*<div ng-controller="headerController">*@
                         <div id="wrapper">
                             <br />
                             <div class="nav navbar-nav navbar-left">
@@ -59,20 +59,15 @@
                             <li><a href="#/iterations"><span class="glyphicon glyphicon-cog"></span> Utvecklingsfaser</a></li>
                         </ul>
                     </div>
-                </div>
+                @*</div>*@
             </nav>
     </header>
     <div class="container">
-        <br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br />@*<br /><br />*@
         @RenderBody()
     </div>
 
     <div id="asideLeft">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <ul class="noBullets">
             <li><span class="glyphicon glyphicon-envelope"></span> Kuvert</li>
             <li><span class="glyphicon glyphicon-pencil"></span> Pennor</li>
