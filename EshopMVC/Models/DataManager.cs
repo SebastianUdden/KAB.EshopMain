@@ -8,11 +8,11 @@ namespace EshopMVC.Models
 {
     public class DataManager
     {
-        CustomerContext context;
+        CustomerContext Context;
 
         public DataManager(CustomerContext context)
         {
-            this.context = context;
+            this.Context = context;
         }
 
         //customer related methods
@@ -26,14 +26,14 @@ namespace EshopMVC.Models
             c.Adress = viewModel.Adress;
             c.Ssn = viewModel.Ssn;
 
-            context.Customers.Add(c);
-            context.SaveChanges();
+            Context.Customers.Add(c);
+            Context.SaveChanges();
         }
 
         public Customer GetCustomer(int id)
         {
             //this needs testing, *should* return a customer object from the database
-            var Customer = context.Customers.Select(x => new Customer
+            var Customer = Context.Customers.Select(x => new Customer
             {
                 Id = x.Id,
                 FirstName = x.FirstName,
@@ -44,13 +44,6 @@ namespace EshopMVC.Models
                 Ssn = x.Ssn
             }).ToArray()/*.Where(x => x.Id == id)*/;
             return Customer[0];
-        }
-
-        //product related methods
-        public void AddProduct()
-        {
-            Product p = new Product();
-            
         }
     }
 }
