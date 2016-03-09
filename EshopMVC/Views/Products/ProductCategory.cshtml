@@ -1,0 +1,12 @@
+﻿@model ProductListViewModel[]
+
+<h1>stuff</h1>
+<table>
+    <tr><th>Produktnamn</th></tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><a href="~/products/product/@item.Id">@item.ProductName</a></td>
+        </tr>
+    }
+</table>

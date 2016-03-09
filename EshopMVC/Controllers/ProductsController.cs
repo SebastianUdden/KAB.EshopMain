@@ -42,11 +42,18 @@ namespace EshopMVC.Controllers
             return RedirectToAction(nameof(ProductsController.Index));
         }
 
-        [HttpPost]
-        public IActionResult Pens()
+        //[HttpPost]
+        public IActionResult ProductCategory(int id)
         {
             var productDataManager = new ProductDataManager(Context);
-            var model = productDataManager.GetProductByCategory(2);
+            var model = productDataManager.GetProductByCategory(id);
+            return View(model);
+        }
+
+        public IActionResult Product(int id)
+        {
+            var productDataManager = new ProductDataManager(Context);
+            var model = productDataManager.GetProductById(id);
             return View(model);
         }
     }
