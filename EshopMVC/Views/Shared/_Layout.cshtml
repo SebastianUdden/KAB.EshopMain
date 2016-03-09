@@ -31,7 +31,7 @@
         <div class="containerLeft">
             <nav class="navbar navbar-default">
                 <div ng-controller="headerController">
-                    <div id="wrapper">
+                    <div class="container-fluid">
                         <br />
                         <div class="nav navbar-nav navbar-left">
                             <div class="navbar-header">
@@ -54,17 +54,17 @@
                         <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Nyheter</a></li>
                         <li><a href="#/shopping-cart"><span class="glyphicon glyphicon-shopping-cart"></span> Kundvagn</a></li>
                         <li><a href="~/products/createproduct"><span class="glyphicon glyphicon-link"></span> Produktregistrering</a></li>
-                        <li><a href="~/home/create"><span class="glyphicon glyphicon-user"></span> Registrering</a></li>
-                        <li><a href="~/home/index"><span class="glyphicon glyphicon-log-in"></span> Inloggning</a></li>
+                        <li><a href="~/customers/create"><span class="glyphicon glyphicon-user"></span> Registrering</a></li>
+                        <li><a href="~/customers/login"><span class="glyphicon glyphicon-log-in"></span> Inloggning</a></li>
                         <li><a href="#/iterations"><span class="glyphicon glyphicon-cog"></span> Utvecklingsfaser</a></li>
                     </ul>
                 </div>
-            </nav>
+            </div>
+        </nav>
         </div>
     </header>
 
     <div class="container">
-        <br /><br /><br /><br /><br /><br />
         @RenderBody()
     </div>
 
@@ -77,8 +77,8 @@
                     <li><a href="~/products/printers"><span class="glyphicon glyphicon-paperclip"></span> Skrivare</a></li>
                     <li><a href="~/products/kitchen"><span class="glyphicon glyphicon-cutlery"></span> Kök</a></li>
                     <li><a href="~/products/other"><span class="glyphicon glyphicon-globe"></span> Övrigt</a></li>
-                </ul>
-            </div>
+        </ul>
+    </div>
         </div>
     </nav>
 

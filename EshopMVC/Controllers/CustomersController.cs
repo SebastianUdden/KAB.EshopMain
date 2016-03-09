@@ -10,10 +10,10 @@ using EshopMVC.ViewModel;
 
 namespace EshopMVC.Controllers
 {
-    public class HomeController : Controller
+    public class CustomersController : Controller
     {
         CustomerContext context;
-        public HomeController(CustomerContext context)
+        public CustomersController(CustomerContext context)
         {
             this.context = context;
         }
@@ -33,7 +33,7 @@ namespace EshopMVC.Controllers
                 var dataManager = new DataManager(context);
                 dataManager.AddCustomer(viewModel);
                 //var x = dataManager.GetCustomer(1);
-                return RedirectToAction(nameof(HomeController.Index));
+                return RedirectToAction(nameof(CustomersController.Index));
         }
         public IActionResult Index()
         {
