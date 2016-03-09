@@ -1,5 +1,4 @@
 ﻿@model CreateProductViewModel
-
 <h1>Register</h1>
 <div asp-validation-summary="ValidationSummary.All"></div>
 
@@ -18,8 +17,9 @@
     <span asp-validation-for="Price"></span>
     <br />
 
-    @Html.EnumDropDownListFor(model => model.Category)
-    <label asp-for=""></label>
+    @*@Html.EnumDropDownListFor(model => model.Category)*@
+    @*@Html.DropDownListFor(m => m, Html.GetEnumSelectList(Model.GetType()))*@
+    <label asp-for="Category"></label>
     <br />
     <input asp-for="Category" placeholder="Produktkategori" />
     <br />
