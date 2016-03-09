@@ -47,9 +47,14 @@ namespace EshopMVC.Models
         }
 
         //product related methods
-        public void AddProduct()
+        public void AddProduct(CreateProductViewModel viewModel)
         {
             Product p = new Product();
+            p.ProductName = viewModel.ProductName;
+            p.Price = viewModel.Price;
+            p.PictureLink = viewModel.ImageURL;
+            p.ProductDescription = viewModel.ProductDescription;
+            p.Stock = viewModel.AmountToAdd;
             
         }
     }

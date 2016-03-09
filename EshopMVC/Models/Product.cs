@@ -13,5 +13,6 @@ namespace EshopMVC.Models
         public int Price { get; set; }
         public int Stock { get; set; }
         public string PictureLink { get; set; }
+        public int CategoryId { get; set; }
     }
 }
