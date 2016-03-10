@@ -36,7 +36,7 @@ namespace EshopMVC.Controllers
                 var dataManager = new DataManager(context);
                 dataManager.AddCustomer(viewModel);
                 //var x = dataManager.GetCustomer(1);
-                return RedirectToAction(nameof(CustomersController.Index));
+                return RedirectToAction(nameof(CustomersController.Login));
         }
         public IActionResult Login()
         {
@@ -63,7 +63,7 @@ namespace EshopMVC.Controllers
             HttpContext.Authentication.SignInAsync("Cookies", new ClaimsPrincipal(newId));
             Response.Cookies.Append("Email", a.First().Email);
             Response.Cookies.Append("FirstName", a.First().FirstName);
-                return RedirectToAction(nameof(CustomersController.Create));
+                return RedirectToAction(nameof(CustomersController.MyPages));
             }
             //var x = dataManager.GetCustomer(1);
             //return RedirectToAction(nameof(CustomersController.Index));
@@ -71,6 +71,11 @@ namespace EshopMVC.Controllers
             //return RedirectToAction(Index());
         }
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult MyPages()
         {
             return View();
         }
