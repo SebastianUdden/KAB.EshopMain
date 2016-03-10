@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
-
 
 namespace EshopMVC.ViewModel
 {
@@ -33,7 +31,7 @@ namespace EshopMVC.ViewModel
 
         [Required(ErrorMessage ="Please re-enter password")]
         [DataType(DataType.Password)]
-        [Display(Name = "Re-enter Password")]
+        [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "Passwords do not match.")]
         public string ComparePassword{ get; set; }
 
