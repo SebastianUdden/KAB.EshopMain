@@ -9,11 +9,21 @@ namespace EshopMVC.Models
     public class ProductDataManager
     {
         ProductContext Context;
+        //OrdersContext Context2;
+        //OrderDetailContext Context3;
+        static List<Product> ShoppingCartList = new List<Product>();
 
         public ProductDataManager(ProductContext context)
         {
             this.Context = context;
         }
+
+        //public ProductDataManager(ProductContext context, OrdersContext context2, OrderDetailContext context3)
+        //{
+        //    this.Context = context;
+        //    this.Context2 = context2;
+        //    this.Context3 = context3;
+        //}
         public void AddProduct(CreateProductViewModel viewModel)
         {
             Product p = new Product();
@@ -25,7 +35,7 @@ namespace EshopMVC.Models
             p.CategoryId = viewModel.Category;
 
             Context.Products.Add(p);
-            
+
             Context.SaveChanges();
         }
 
@@ -64,21 +74,57 @@ namespace EshopMVC.Models
             return Product;
         }
 
-        public Product AddProductToShoppingCart(int id)
+
+
+        public void AddProductToShoppingCart(int id)
         {
-            var Product = Context.Products.Select(x => new Product
+            if (Context.Products.Count(x => x.Id == id) > 0)
+            {
+                var Product = Context.Products.Select(x => new Product
+                {
+                    Id = x.Id,
+                    ProductName = x.ProductName,
+                    ProductDescription = x.ProductDescription,
+                    Price = x.Price,
+                    PictureLink = x.PictureLink,
+                    Stock = x.Stock,
+                    CategoryId = x.CategoryId
+                }).Where(x => x.Id == id).First();
+                ShoppingCartList.Add(Product);
+            }
+        }
+
+        public List<ProductListViewModel> ShoppingCart()
+        {
+            if (ShoppingCartList.Count == 0)
+                return new List<ProductListViewModel>();
+
+            var ProductList = ShoppingCartList.Select(x => new ProductListViewModel
             {
                 Id = x.Id,
                 ProductName = x.ProductName,
                 ProductDescription = x.ProductDescription,
                 Price = x.Price,
-                PictureLink = x.PictureLink,
+                ImageURL = x.PictureLink,
                 Stock = x.Stock,
                 CategoryId = x.CategoryId
-            }).Where(x => x.Id == id).Single();
-            return Product;
+            }).ToList();
+            return ProductList;
         }
+        //public void RegisterCheckout()
+        //{
 
+        //    foreach (var item in ShoppingCartList)
+        //    {
+        //        var p = new OrderDetail();
+        //        p.ProductId = item.Id;
+        //        p.Quantity = 1;
+        //        p.CurrentPrice = item.Price;
+        //        p.OrderId = Context2.Orders.Last().Id;
+        //        Context3.OrderDetails.Add(p);
+        //    }
 
+        //    Context.SaveChanges();
+        //}
     }
 }

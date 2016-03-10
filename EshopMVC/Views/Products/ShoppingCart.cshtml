@@ -1,17 +1,25 @@
-﻿@model List<Product>
+﻿@model List<ProductListViewModel>
 
-<table>
-    <tr>
-        <th>Produktnamn</th>
-        <th>Pris</th>
-    </tr>
-    @foreach (var product in Model)
-    {
+@if (Model != null)
+{
+    <table>
         <tr>
-            <td>@product.ProductName</td>
-            <td>@product.Price</td>
+            <th>Produktnamn</th>
+            <th>Pris</th>
         </tr>
-    }
-</table>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ProductName</td>
+                <td>@product.Price</td>
+            </tr>
+        }
+    </table>
 
-<a href='@Url.Action("ShoppingCart", "Products", new { id = Model[0].Id })'><input class="btn btn-info" type="button" value="Checkout" /></a>
+    <a href='@Url.Action("ShoppingCart", "Products", new { id = Model[0].Id })'><input class="btn btn-info" type="button" value="Checkout" /></a>
+}
+else
+{
+        <h2>Your cart is empty!</h2>
+}
+
