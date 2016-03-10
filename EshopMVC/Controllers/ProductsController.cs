@@ -13,6 +13,7 @@ namespace EshopMVC.Controllers
     public class ProductsController : Controller
     {
         ProductContext Context;
+        public List<Product> ShoppingCartList = new List<Product>();
         public ProductsController(ProductContext context)
         {
             this.Context = context;
@@ -55,6 +56,14 @@ namespace EshopMVC.Controllers
             var productDataManager = new ProductDataManager(Context);
             var model = productDataManager.GetProductById(id);
             return View(model);
+        }
+
+        public IActionResult ShoppingCart(int id)
+        {
+            var productDataManager = new ProductDataManager(Context);
+            var model = productDataManager.AddProductToShoppingCart(id);
+            ShoppingCartList.Add(model);
+            return View(ShoppingCartList);
         }
     }
 }
