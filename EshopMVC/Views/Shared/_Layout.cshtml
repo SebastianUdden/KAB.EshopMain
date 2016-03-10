@@ -26,9 +26,12 @@
     <script src="~/script/jquery.validate.unobtrusive.js"></script>
     <script src="~/bower_components/microsoft.jquery.unobtrusive.validation/jquery.validate.unobtrusive.min.js"></script>
     <script src="app.js"></script>
-    <script src="~/script/superstil.js"></script>
 </head>
 <body>
+    @if (Context.Request.Cookies.Count() > 0)
+    {
+        <p>Welcome @Context.Request.Cookies.Keys.Last().ToString()</p>
+    }
     <header>
         <div class="containerLeft">
             <nav class="navbar navbar-default">
@@ -37,7 +40,7 @@
                         <br />
                         <div class="nav navbar-nav navbar-left">
                             <div class="navbar-header">
-                                <a class="navbar-brand" href="~/home/index" style="font-size:40px">KAB <span class="glyphicon glyphicon-home"></span></a>
+                                <a class="navbar-brand" href="/" style="font-size:40px">KAB <span class="glyphicon glyphicon-home"></span></a>
                             </div>
                             <div class="col-md-6 col-md-offset-3">
                                 <div class="input-group">
@@ -51,21 +54,14 @@
                             </div>
                         </div>
                     </div>
-                     
+
                     <ul class="nav navbar-nav navbar-right">
-                        @*<li><a href="#"><span class="glyphicon glyphicon-globe"></span> Nyheter</a></li>*@
-                        <li><a href="~/products/shoppingcart"><span class="glyphicon glyphicon-shopping-cart"></span> Kundvagn</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Nyheter</a></li>
+                        <li><a href="#/shopping-cart"><span class="glyphicon glyphicon-shopping-cart"></span> Kundvagn</a></li>
                         <li><a href="~/products/createproduct"><span class="glyphicon glyphicon-link"></span> Produktregistrering</a></li>
-                        @if(Context.Request.Cookies["FirstName"].Count != 0)
-                        {
-                            <li><a><span class="glyphicon glyphicon-briefcase"></span> welcome @Context.Request.Cookies["FirstName"].First() </a></li>
-                        }
-                        else
-                        {
-                            <li><a href="~/customers/create"><span class="glyphicon glyphicon-user"></span> Registrering</a></li>
-                            <li><a href="~/customers/login"><span class="glyphicon glyphicon-log-in"></span> Inloggning </a></li>
-                        }
-                        @*<li><a href="#/iterations"><span class="glyphicon glyphicon-cog"></span> Utvecklingsfaser </a></li>*@
+                        <li><a href="~/customers/create"><span class="glyphicon glyphicon-user"></span> Registrering</a></li>
+                        <li><a href="~/customers/login"><span class="glyphicon glyphicon-log-in"></span> Inloggning</a></li>
+                        <li><a href="#/iterations"><span class="glyphicon glyphicon-cog"></span> Utvecklingsfaser</a></li>
                     </ul>
                 </div>
             </nav>
@@ -85,8 +81,8 @@
                     <li><a href="~/products/productcategory/4"><span class="glyphicon glyphicon-paperclip"></span> Skrivare</a></li>
                     <li><a href="~/products/productcategory/5"><span class="glyphicon glyphicon-cutlery"></span> Kök</a></li>
                     <li><a href="~/products/productcategory/6"><span class="glyphicon glyphicon-globe"></span> Övrigt</a></li>
-        </ul>
-    </div>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -176,18 +172,84 @@
         <li><span class="glyphicon glyphicon-paperclip"></span> Skrivare</li>
         <li><span class="glyphicon glyphicon-cutlery"></span> Kök</li>
         <li><span class="glyphicon glyphicon-globe"></span> Övrigt</li>
-        @*
-        <li><span class="glyphicon glyphicon-pushpin"></span> Häftstift</li>
+        @*<li><span class="glyphicon glyphicon-pushpin"></span> Häftstift</li>
         <li><span class="glyphicon glyphicon-wrench"></span> Dylikt & saxar</li>*@
-    @*
-        </ul>*@
-    @*
-        </div>*@
+    @*</ul>*@
+    @*</div>*@
     <div id="asideRight">
     </div>
-    <div id="footer" ><center>
-    Häftapparatsgatan 7, Gemträsk <span class="glyphicon glyphicon-copyright-mark"></span>
-</center>
+    <div id="footer">
+        <br />
+        Häftapparatsgatan 7, Gemträsk <span class="glyphicon glyphicon-copyright-mark"></span> PPP
+        <br />
+        <br />
     </div>
+    <script>
+        $(function () {
+            $('.button-checkbox').each(function () {
+
+                // Settings
+                var $widget = $(this),
+                    $button = $widget.find('button'),
+                    $checkbox = $widget.find('input:checkbox'),
+                    color = $button.data('color'),
+                    settings = {
+                        on: {
+                            icon: 'glyphicon glyphicon-check'
+                        },
+                        off: {
+                            icon: 'glyphicon glyphicon-unchecked'
+                        }
+                    };
+
+                // Event Handlers
+                $button.on('click', function () {
+                    $checkbox.prop('checked', !$checkbox.is(':checked'));
+                    $checkbox.triggerHandler('change');
+                    updateDisplay();
+                });
+                $checkbox.on('change', function () {
+                    updateDisplay();
+                });
+
+                // Actions
+                function updateDisplay() {
+                    var isChecked = $checkbox.is(':checked');
+
+                    // Set the button's state
+                    $button.data('state', (isChecked) ? "on" : "off");
+
+                    // Set the button's icon
+                    $button.find('.state-icon')
+                        .removeClass()
+                        .addClass('state-icon ' + settings[$button.data('state')].icon);
+
+                    // Update the button's color
+                    if (isChecked) {
+                        $button
+                            .removeClass('btn-default')
+                            .addClass('btn-' + color + ' active');
+                    }
+                    else {
+                        $button
+                            .removeClass('btn-' + color + ' active')
+                            .addClass('btn-default');
+                    }
+                }
+
+                // Initialization
+                function init() {
+
+                    updateDisplay();
+
+                    // Inject the icon if applicable
+                    if ($button.find('.state-icon').length == 0) {
+                        $button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i>');
+                    }
+                }
+                init();
+            });
+        });
+    </script>
 </body>
 </html>
