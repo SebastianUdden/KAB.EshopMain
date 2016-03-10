@@ -12,6 +12,8 @@ namespace EshopMVC.Controllers
 {
     public class ProductsController : Controller
     {
+        
+
         ProductContext Context;
         public List<Product> ShoppingCartList = new List<Product>();
         public ProductsController(ProductContext context)
