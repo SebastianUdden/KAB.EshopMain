@@ -77,12 +77,12 @@ namespace EshopMVC.Controllers
             }
             return View();
         }
-        
-        //public IActionResult CheckoutComplete()
-        //{
-        //    var productDataManager = new ProductDataManager(Context/*, Context2, Context3*/);
-        //    productDataManager.RegisterCheckout();
-        //    return View();
-        //}
+
+        public IActionResult CheckoutComplete()
+        {
+            var productDataManager = new ProductDataManager(Context/*, Context2, Context3*/);
+            productDataManager.RegisterCheckout();
+            return View();
+        }
     }
 }

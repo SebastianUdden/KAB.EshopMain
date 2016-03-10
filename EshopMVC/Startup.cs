@@ -26,10 +26,10 @@ namespace EshopMVC
                 o.UseSqlServer(connString))
                 .AddDbContext<ProductContext>(o =>
                 o.UseSqlServer(connString))
-                //.AddDbContext<OrdersContext>(o =>
-                //o.UseSqlServer(connString))
-                //.AddDbContext<OrderDetailContext>(o =>
-                //o.UseSqlServer(connString))
+                .AddDbContext<OrdersContext>(o =>
+                o.UseSqlServer(connString))
+                .AddDbContext<OrderDetailContext>(o =>
+                o.UseSqlServer(connString))
                 .AddDbContext<ShoppingCartContext>(o =>
                 o.UseSqlServer(connString));
 

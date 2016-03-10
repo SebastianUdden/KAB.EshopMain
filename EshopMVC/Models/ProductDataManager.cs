@@ -111,20 +111,23 @@ namespace EshopMVC.Models
             }).ToList();
             return ProductList;
         }
-        //public void RegisterCheckout()
-        //{
+        public void RegisterCheckout()
+        {
+            var orderdatamanager = new OrdersDataManager(new OrdersContext());
+            var orderId = orderdatamanager.CreateOrder();
+            var orderdetaildatamanager = new OrderDetailDataManager(new OrderDetailContext());
+            foreach (var item in ShoppingCartList)
+            {
+                var p = new OrderDetail();
+                p.ProductId = item.Id;
+                p.Quantity = 1;
+                p.CurrentPrice = item.Price;
+                p.OrderId = orderId;
 
-        //    foreach (var item in ShoppingCartList)
-        //    {
-        //        var p = new OrderDetail();
-        //        p.ProductId = item.Id;
-        //        p.Quantity = 1;
-        //        p.CurrentPrice = item.Price;
-        //        p.OrderId = Context2.Orders.Last().Id;
-        //        Context3.OrderDetails.Add(p);
-        //    }
+                orderdetaildatamanager.CreateOrderDetail(p);
 
-        //    Context.SaveChanges();
-        //}
+            }
+
+        }
     }
 }
