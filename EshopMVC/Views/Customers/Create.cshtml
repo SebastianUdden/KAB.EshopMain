@@ -1,62 +1,72 @@
 ﻿@model CreateCustomerViewModel
 
-<h1>Register</h1>
-<div asp-validation-summary="ValidationSummary.All"></div>
 
-<form asp-controller="Home" asp-action="Create">
-    <label asp-for="FirstName"></label>
-    <br />
-    <input asp-for="FirstName" placeholder="Förnamn" />
-    <br />
-    <span asp-validation-for="FirstName"></span>
-    <br />
+<div class="row">
+    <div class="col-md-8">
+        <section>
+            <form asp-controller="Home" asp-action="Create" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal" role="form">
+                <h2>Registrera konto</h2>
+                <hr />
+                <div asp-validation-summary="ValidationSummary.All" class="text-danger"></div>
+                <div class="form-group">
+
+                    @*<form asp-controller="Home" asp-action="Create">*@
+                    <label asp-for="FirstName"></label>
+                    <br />
+                    <input asp-for="FirstName" placeholder="Förnamn" />
+                    <br />
+                    <span asp-validation-for="FirstName"></span>
+                    <br />
 
 
-    <label asp-for="LastName"></label>
-    <br />
-    <input asp-for="LastName" placeholder="Efternamn" />
-    <br />
-    <span asp-validation-for="LastName"></span>
-    <br />
+                    <label asp-for="LastName"></label>
+                    <br />
+                    <input asp-for="LastName" placeholder="Efternamn" />
+                    <br />
+                    <span asp-validation-for="LastName"></span>
+                    <br />
 
-    <label asp-for="Email"></label>
-    <br />
-    <input asp-for="Email" placeholder="E-postadress" />
-    <br />
-    <span asp-validation-for="Email"></span>
-    <br />
+                    <label asp-for="Email"></label>
+                    <br />
+                    <input asp-for="Email" placeholder="E-postadress" />
+                    <br />
+                    <span asp-validation-for="Email"></span>
+                    <br />
 
-    <label asp-for="Password"></label>
-    <br />
-    <input asp-for="Password" type="password" placeholder="Lösenord" />
-    <br />
-    <span asp-validation-for="Password"></span>
-    <br />
+                    <label asp-for="Password"></label>
+                    <br />
+                    <input asp-for="Password" type="password" placeholder="Lösenord" />
+                    <br />
+                    <span asp-validation-for="Password"></span>
+                    <br />
 
-    <label asp-for="ComparePassword"></label>
-    <br />
-    <input asp-for="ComparePassword" type="password" placeholder="Bekräfta lösenord" />
-    <br />
-    <span asp-validation-for="ComparePassword"></span>
-    <br />
+                    <label asp-for="ComparePassword"></label>
+                    <br />
+                    <input asp-for="ComparePassword" type="password" placeholder="Bekräfta lösenord" />
+                    <br />
+                    <span asp-validation-for="ComparePassword"></span>
+                    <br />
 
-    <label asp-for="Adress"></label>
-    <br />
-    <input asp-for="Adress" placeholder="Adress" />
-    <br />
-    <span asp-validation-for="Adress"></span>
-    <br />
+                    <label asp-for="Adress"></label>
+                    <br />
+                    <input asp-for="Adress" placeholder="Adress" />
+                    <br />
+                    <span asp-validation-for="Adress"></span>
+                    <br />
 
-    <label asp-for="Ssn"></label>
-    <br />
-    <input asp-for="Ssn" placeholder="Personnummer" />
-    <br />
-    <span asp-validation-for="Ssn"></span>
-    <br />
+                    <label asp-for="Ssn"></label>
+                    <br />
+                    <input asp-for="Ssn" placeholder="Personnummer" />
+                    <br />
+                    <span asp-validation-for="Ssn"></span>
+                    <br />
 
-    <input type="submit" value="Create" />
+                    <input type="submit" value="Create" />
 </form>
-
+            @*</form>*@
+        </section>
+    </div>
+</div>
 @*<form ng-submit="onSubmit()"
           novalidate="novalidate">
 
