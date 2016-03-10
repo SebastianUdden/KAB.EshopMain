@@ -12,14 +12,21 @@ namespace EshopMVC.Controllers
 {
     public class ProductsController : Controller
     {
-        
-
         ProductContext Context;
-        public List<Product> ShoppingCartList = new List<Product>();
+        //OrdersContext Context2;
+        //OrderDetailContext Context3;
+
         public ProductsController(ProductContext context)
         {
             this.Context = context;
         }
+
+        //public ProductsController(ProductContext context, OrdersContext context2, OrderDetailContext context3)
+        //{
+        //    this.Context = context;
+        //    this.Context2 = context2;
+        //    this.Context3 = context3;
+        //}
         // GET: /<controller>/
         public IActionResult Index()
         {
@@ -59,13 +66,23 @@ namespace EshopMVC.Controllers
             var model = productDataManager.GetProductById(id);
             return View(model);
         }
-
         public IActionResult ShoppingCart(int id)
         {
             var productDataManager = new ProductDataManager(Context);
-            var model = productDataManager.AddProductToShoppingCart(id);
-            ShoppingCartList.Add(model);
-            return View(ShoppingCartList);
+            productDataManager.AddProductToShoppingCart(id);
+            var a = productDataManager.ShoppingCart();
+            if(a.Count > 0)
+            {
+            return View(a);
+            }
+            return View();
         }
+        
+        //public IActionResult CheckoutComplete()
+        //{
+        //    var productDataManager = new ProductDataManager(Context/*, Context2, Context3*/);
+        //    productDataManager.RegisterCheckout();
+        //    return View();
+        //}
     }
 }

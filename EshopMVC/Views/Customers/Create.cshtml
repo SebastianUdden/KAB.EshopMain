@@ -1,155 +1,88 @@
 ﻿@model CreateCustomerViewModel
 
-
-@*<div class="row">
-    <div class="col-md-8">
-        <section>
-            <form asp-controller="Home" asp-action="Create" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal" role="form">
-                <h2>Registrera konto</h2>
-                <hr />
-                <div asp-validation-summary="ValidationSummary.All" class="text-danger"></div>
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <label asp-for="FirstName" class="col-md-2 control-label"></label>
-                        <br />
-                        <input asp-for="FirstName" placeholder="Förnamn" class="form-control" />
-                        <br />
-                        <span asp-validation-for="FirstName" class="text-danger"></span>
-                        <br />
-                    </div>
-                </div>
-                <div>
-                    <label asp-for="LastName"></label>
-                    <br />
-                    <input asp-for="LastName" placeholder="Efternamn" />
-                    <br />
-                    <span asp-validation-for="LastName"></span>
-                    <br />
-                </div>
-                <label asp-for="Email"></label>
-                <br />
-                <input asp-for="Email" placeholder="E-postadress" />
-                <br />
-                <span asp-validation-for="Email"></span>
-                <br />
-
-                <label asp-for="Password"></label>
-                <br />
-                <input asp-for="Password" type="password" placeholder="Lösenord" />
-                <br />
-                <span asp-validation-for="Password"></span>
-                <br />
-
-                <label asp-for="ComparePassword"></label>
-                <br />
-                <input asp-for="ComparePassword" type="password" placeholder="Bekräfta lösenord" />
-                <br />
-                <span asp-validation-for="ComparePassword"></span>
-                <br />
-
-                <label asp-for="Adress"></label>
-                <br />
-                <input asp-for="Adress" placeholder="Adress" />
-                <br />
-                <span asp-validation-for="Adress"></span>
-                <br />
-
-                <label asp-for="Ssn"></label>
-                <br />
-                <input asp-for="Ssn" placeholder="ssn" />
-                <span asp-validation-for="Ssn"></span>
-
-                <br />
-
-                <input type="submit" value="Create" />
-            </form>
-        </section>
-    </div>
-</div>*@
-
 <div class="container">
 
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-                <form asp-controller="Home" asp-action="Create" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" role="form">
-                    <h2>Registrera Konto <small>snabbt och smidigt</small></h2>
-                    <hr class="colorgraph">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <input asp-for="FirstName" id="first_name" class="form-control input-lg" placeholder="Förnamn" tabindex="1">
-                                <span asp-validation-for="FirstName" class="text-danger"></span>
-                                <br />
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <input asp-for="LastName" type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Efternamn" tabindex="2">
-                                <span asp-validation-for="LastName"></span>
-                                <br />
-                            </div>
+            <form asp-controller="Home" asp-action="Create" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" role="form">
+                <h2>Registrera Konto <small>snabbt och smidigt</small></h2>
+                <hr class="colorgraph">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input asp-for="FirstName" class="form-control input-lg" placeholder="Förnamn" tabindex="1">
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                            <br />
                         </div>
                     </div>
-                    <div class="form-group">
-                        <input asp-for="Adress" placeholder="Adress" class="form-control input-lg" tabindex="3">
-                        <span asp-validation-for="Adress"></span>
-                        <br />
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <input asp-for="Email" placeholder="E-postadress" class="form-control input-lg" tabindex="4">
-                                <span asp-validation-for="Email"></span>
-                                <br />
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6">
-                            <div class="form-group">
-
-
-                                <input asp-for="Ssn" placeholder="Personnummer" class="form-control input-lg" tabindex="5">
-                                <span asp-validation-for="Ssn"></span>
-                                <br />
-                            </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input asp-for="LastName" class="form-control input-lg" placeholder="Efternamn" tabindex="2">
+                            <span asp-validation-for="LastName"></span>
+                            <br />
                         </div>
                     </div>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Adress" placeholder="Adress" class="form-control input-lg" tabindex="3">
+                    <span asp-validation-for="Adress"></span>
+                    <br />
+                </div>
 
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <input asp-for="Password" type="password" placeholder="Lösenord" class="form-control input-lg" tabindex="6">
-                                <span asp-validation-for="Password"></span>
-                                <br />
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6">
-                            <div class="form-group">
 
-                                <input asp-for="ComparePassword" type="password" placeholder="Bekräfta lösenord" class="form-control input-lg" tabindex="7">
-                                <span asp-validation-for="ComparePassword"></span>
-                                <br />
-                            </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input asp-for="Email" placeholder="E-postadress" class="form-control input-lg" tabindex="4">
+                            <span asp-validation-for="Email"></span>
+                            <br />
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-4 col-sm-3 col-md-3">
-                            <span class="button-checkbox">
-                                <button type="button" class="btn" data-color="info" tabindex="7">Kör bara</button>
-                                <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
-                            </span>
-                        </div>
-                        <div class="col-xs-8 col-sm-9 col-md-9">
-                            Då du klickar på <strong class="label label-primary">Registrera</strong> accepterar du de <a href="#" data-toggle="modal" data-target="#t_and_c_m">användarvillkor</a> Ledningen har arbetat fram. Detta inkluderar vårat suspekta användade av Cookies.
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+
+
+                            <input asp-for="Ssn" placeholder="Personnummer" class="form-control input-lg" tabindex="5">
+                            <span asp-validation-for="Ssn"></span>
+                            <br />
                         </div>
                     </div>
-                    <hr class="colorgraph">
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6"><input type="submit" value="Registrera" class="btn btn-primary btn-block btn-lg" tabindex="8"></div>
-                        <div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Logga in</a></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input asp-for="Password" type="password" placeholder="Lösenord" class="form-control input-lg" tabindex="6">
+                            <span asp-validation-for="Password"></span>
+                            <br />
+                        </div>
                     </div>
-                </form>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+
+                            <input asp-for="ComparePassword" type="password" placeholder="Bekräfta lösenord" class="form-control input-lg" tabindex="7">
+                            <span asp-validation-for="ComparePassword"></span>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-sm-3 col-md-3">
+                        <span class="button-checkbox">
+                            <button type="button" class="btn" data-color="info" tabindex="7">Användarvillkor</button>
+                            <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
+                        </span>
+                    </div>
+                    <div class="col-xs-8 col-sm-9 col-md-9">
+                        Då du klickar i checkboxen och klickar på <strong class="label label-primary">Registrera</strong> accepterar du de <a href="#" data-toggle="modal" data-target="#t_and_c_m">användarvillkor</a> Ledningen har arbetat fram. Detta inkluderar vårat suspekta användade av Cookies.
+                    </div>
+                </div>
+                <hr class="colorgraph">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6"><input type="submit" value="Registrera" class="btn btn-primary btn-block btn-lg" tabindex="8"></div>
+                    <div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Logga in</a></div>
+                </div>
+            </form>
         </div>
     </div>
     <!-- Modal -->
@@ -161,11 +94,11 @@
                     <h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Du accepterar här att vi kan göra precis vad vi vill med dina uppgifter</p>
-                    <p>Du accepterar här att vi kan göra precis vad vi vill med dina uppgifter</p>
-                    <p>Du accepterar här att vi kan göra precis vad vi vill med dina uppgifter</p>
-                    <p>Du accepterar här att vi kan göra precis vad vi vill med dina uppgifter</p>
-                    <p>Du accepterar här att vi kan göra precis vad vi vill med dina uppgifter</p>   
+                    <p>Du accepterar här att vi kan göra precis vad vi vill med dina uppgifter, vi säljer visa-kort</p>
+                    <p>Du accepterar här att vi kan göra precis vad vi vill med dina uppgifter, vi säljer visa-kort</p>
+                    <p>Du accepterar här att vi kan göra precis vad vi vill med dina uppgifter, vi säljer visa-kort</p>
+                    <p>Du accepterar här att vi kan göra precis vad vi vill med dina uppgifter, vi säljer visa-kort</p>
+                    <p>Du accepterar här att vi kan göra precis vad vi vill med dina uppgifter, vi säljer visa-kort</p>
 
                                 </div>
                 <div class="modal-footer">
