@@ -41,22 +41,22 @@ namespace EshopMVC.Models
                 PictureLink = x.PictureLink,
                 Stock = x.Stock,
                 CategoryId = x.CategoryId,
-            }).ToArray();
+            }).Where(x => x.Id == id).ToArray();
             return Product[0];
         }
 
-        public Product[] GetProductByCategory(int categoryId)
+        public ProductListViewModel[] GetProductByCategory(int categoryId)
         {
             //untested
-            var Product = Context.Products.Select(x => new Product
+            var Product = Context.Products.Select(x => new ProductListViewModel
             {
                 Id = x.Id,
                 ProductName = x.ProductName,
                 ProductDescription = x.ProductDescription,
                 Price = x.Price,
-                PictureLink = x.PictureLink,
+                ImageURL = x.PictureLink,
                 Stock = x.Stock,
-                CategoryId = x.CategoryId,
+                CategoryId = x.CategoryId
             }).Where(x => x.CategoryId == categoryId).ToArray();
             return Product;
         }
