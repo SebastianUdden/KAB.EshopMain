@@ -13,12 +13,15 @@ namespace EshopMVC.Models
         {
             this.Context = context;
         }
-        public void CreateOrder()
+        public int CreateOrder()
         {
             DateTime dateTime = DateTime.Now;
             var o = new Order();
             o.Date = dateTime;
             Context.Orders.Add(o);
+            Context.SaveChanges();
+
+            return Context.Orders.Last().Id;
         }
     }
 }
