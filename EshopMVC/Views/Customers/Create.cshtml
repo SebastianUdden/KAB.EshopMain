@@ -4,9 +4,11 @@
 
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-            <form asp-controller="Home" asp-action="Create" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" role="form">
+            <form asp-controller="Customers" asp-action="Create" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" role="form">
                 <h2>Registrera Konto <small>snabbt och smidigt</small></h2>
                 <hr class="colorgraph">
+
+
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
@@ -40,14 +42,13 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
-
-
                             <input asp-for="Ssn" placeholder="Personnummer" class="form-control input-lg" tabindex="5">
                             <span asp-validation-for="Ssn"></span>
                             <br />
                         </div>
                     </div>
                 </div>
+
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6">
@@ -66,6 +67,8 @@
                         </div>
                     </div>
                 </div>
+
+
                 <div class="row">
                     <div class="col-xs-4 col-sm-3 col-md-3">
                         <span class="button-checkbox">
@@ -79,8 +82,8 @@
                 </div>
                 <hr class="colorgraph">
                 <div class="row">
-                    <div class="col-xs-12 col-md-6"><input type="submit" value="Registrera" class="btn btn-primary btn-block btn-lg" tabindex="8"></div>
-                    <div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Logga in</a></div>
+                    <div class="col-xs-12 col-md-6"><a href="~/customers/login"><input type="submit" value="Registrera" class="btn btn-primary btn-block btn-lg" tabindex="8"></a></div>
+                    <div class="col-xs-12 col-md-6"><a href="~/customers/login" class="btn btn-success btn-block btn-lg">Logga in</a></div>
                 </div>
             </form>
         </div>
@@ -100,7 +103,7 @@
                     <p>Du accepterar här att vi kan göra precis vad vi vill med dina uppgifter, vi säljer visa-kort</p>
                     <p>Du accepterar här att vi kan göra precis vad vi vill med dina uppgifter, vi säljer visa-kort</p>
 
-                                </div>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
                 </div>
