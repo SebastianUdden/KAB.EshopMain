@@ -35,7 +35,7 @@
                         <br />
                         <div class="nav navbar-nav navbar-left">
                             <div class="navbar-header">
-                                <a class="navbar-brand" href="/" style="font-size:40px">KAB <span class="glyphicon glyphicon-home"></span></a>
+                                <a class="navbar-brand" href="~/home/index" style="font-size:40px">KAB <span class="glyphicon glyphicon-home"></span></a>
                             </div>
                             <div class="col-md-6 col-md-offset-3">
                                 <div class="input-group">
@@ -54,25 +54,19 @@
                         <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Nyheter</a></li>
                         <li><a href="#/shopping-cart"><span class="glyphicon glyphicon-shopping-cart"></span> Kundvagn</a></li>
                         <li><a href="~/products/createproduct"><span class="glyphicon glyphicon-link"></span> Produktregistrering</a></li>
-                        @if (Context.Request.Cookies.Keys.Count() > 0)
+                        @if(Context.Request.Cookies["FirstName"].Count != 0)
                         {
-                            @foreach (var item in Context.Request.Cookies)
-                            {
-                                if (item.Key == "FirstName")
-                                {
-                                    <li><a><span class="glyphicon glyphicon-briefcase"></span> welcome @item.Value </a></li>
-                                }
-                            }
+                            <li><a><span class="glyphicon glyphicon-briefcase"></span> welcome @Context.Request.Cookies["FirstName"].First() </a></li>
                         }
                         else
                         {
-                        <li><a href="~/customers/create"><span class="glyphicon glyphicon-user"></span> Registrering</a></li>
-                        <li><a href="~/customers/login"><span class="glyphicon glyphicon-log-in"></span> Inloggning </a></li>
+                            <li><a href="~/customers/create"><span class="glyphicon glyphicon-user"></span> Registrering</a></li>
+                            <li><a href="~/customers/login"><span class="glyphicon glyphicon-log-in"></span> Inloggning </a></li>
                         }
-                        <li><a href = "#/iterations"><span class="glyphicon glyphicon-cog"></span> Utvecklingsfaser </a></li>
+                        <li><a href="#/iterations"><span class="glyphicon glyphicon-cog"></span> Utvecklingsfaser </a></li>
                     </ul>
                 </div>
-        </nav>
+            </nav>
         </div>
     </header>
 
