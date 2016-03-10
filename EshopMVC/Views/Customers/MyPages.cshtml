@@ -1,0 +1,4 @@
+﻿@if (Context.Request.Cookies["FirstName"].Count != 0)
+{
+    <h1>Welcome @Context.Request.Cookies["FirstName"].First()</h1>
+}

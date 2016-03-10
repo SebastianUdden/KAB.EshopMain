@@ -25,8 +25,8 @@ namespace EshopMVC.Models
             p.CategoryId = viewModel.Category;
 
             Context.Products.Add(p);
+            
             Context.SaveChanges();
-
         }
 
         public Product GetProductById(int id)
@@ -43,8 +43,10 @@ namespace EshopMVC.Models
                 CategoryId = x.CategoryId,
             }).Where(x => x.Id == id).ToArray();
             return Product[0];
-
         }
+
+        // När man kör debugger får vi exception på Product[0]. F11 tre gånger så kör den. 
+        // När man kör sidan vanligt fungerar allt.
 
         public ProductListViewModel[] GetProductByCategory(int categoryId)
         {
@@ -61,5 +63,22 @@ namespace EshopMVC.Models
             }).Where(x => x.CategoryId == categoryId).ToArray();
             return Product;
         }
+
+        public Product AddProductToShoppingCart(int id)
+        {
+            var Product = Context.Products.Select(x => new Product
+            {
+                Id = x.Id,
+                ProductName = x.ProductName,
+                ProductDescription = x.ProductDescription,
+                Price = x.Price,
+                PictureLink = x.PictureLink,
+                Stock = x.Stock,
+                CategoryId = x.CategoryId
+            }).Where(x => x.Id == id).Single();
+            return Product;
+        }
+
+
     }
 }

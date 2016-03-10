@@ -25,6 +25,8 @@ namespace EshopMVC
                 .AddDbContext<CustomerContext>(o =>
                 o.UseSqlServer(connString))
                 .AddDbContext<ProductContext>(o =>
+                o.UseSqlServer(connString))
+                .AddDbContext<ShoppingCartContext>(o =>
                 o.UseSqlServer(connString));
 
             services.AddMvc();

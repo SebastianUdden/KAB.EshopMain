@@ -1,0 +1,17 @@
+﻿@model List<Product>
+
+<table>
+    <tr>
+        <th>Produktnamn</th>
+        <th>Pris</th>
+    </tr>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>@product.ProductName</td>
+            <td>@product.Price</td>
+        </tr>
+    }
+</table>
+
+<a href='@Url.Action("ShoppingCart", "Products", new { id = Model[0].Id })'><input class="btn btn-info" type="button" value="Checkout" /></a>

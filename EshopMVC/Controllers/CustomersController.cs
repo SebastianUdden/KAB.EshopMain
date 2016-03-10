@@ -6,6 +6,9 @@ using Microsoft.AspNet.Mvc;
 using EshopMVC.Models;
 using EshopMVC.ViewModel;
 
+using Microsoft.AspNet.Http.Authentication;
+using System.Security.Claims;
+
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace EshopMVC.Controllers
@@ -33,7 +36,7 @@ namespace EshopMVC.Controllers
                 var dataManager = new DataManager(context);
                 dataManager.AddCustomer(viewModel);
                 //var x = dataManager.GetCustomer(1);
-                return RedirectToAction(nameof(CustomersController.Index));
+                return RedirectToAction(nameof(CustomersController.Login));
         }
         public IActionResult Login()
         {
@@ -46,11 +49,21 @@ namespace EshopMVC.Controllers
             {
                 return View(viewModel);
             }
+
+            
             var dataManager = new DataManager(context);
-            var a = dataManager.GetCustomer(viewModel.Email);
+            HttpContext.Authentication.SignOutAsync("Cookies");
+            var a = dataManager.GetCustomer(viewModel.Email, viewModel.Password);
             if(a != null && a.Length>0)
             {
-            Response.Cookies.Append("Hej", a.First().FirstName);
+            var s = new Claim("FirstName",a.First().FirstName);
+            var newId = new ClaimsIdentity("application", "name", "role");
+            newId.AddClaim(new Claim("FirstName", a.First().FirstName));
+            newId.AddClaim(new Claim("Email", a.First().Email));
+            HttpContext.Authentication.SignInAsync("Cookies", new ClaimsPrincipal(newId));
+            Response.Cookies.Append("Email", a.First().Email);
+            Response.Cookies.Append("FirstName", a.First().FirstName);
+                return RedirectToAction(nameof(CustomersController.MyPages));
             }
             //var x = dataManager.GetCustomer(1);
             //return RedirectToAction(nameof(CustomersController.Index));
@@ -58,6 +71,11 @@ namespace EshopMVC.Controllers
             //return RedirectToAction(Index());
         }
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult MyPages()
         {
             return View();
         }
