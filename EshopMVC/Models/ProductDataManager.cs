@@ -25,6 +25,7 @@ namespace EshopMVC.Models
             p.CategoryId = viewModel.Category;
 
             Context.Products.Add(p);
+            
             Context.SaveChanges();
         }
 
@@ -77,5 +78,7 @@ namespace EshopMVC.Models
             }).Where(x => x.Id == id).Single();
             return Product;
         }
+
+
     }
 }
