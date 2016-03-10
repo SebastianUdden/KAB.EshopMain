@@ -50,7 +50,9 @@ namespace EshopMVC.Controllers
             var a = dataManager.GetCustomer(viewModel.Email);
             if(a != null && a.Length>0)
             {
-            Response.Cookies.Append("Hej", a.First().FirstName);
+            Response.Cookies.Append("Email", a.First().Email);
+            Response.Cookies.Append("FirstName", a.First().FirstName);
+                //return RedirectToAction("~/products/index/");
             }
             //var x = dataManager.GetCustomer(1);
             //return RedirectToAction(nameof(CustomersController.Index));
