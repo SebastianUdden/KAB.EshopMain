@@ -43,6 +43,7 @@ namespace EshopMVC.Models
                 CategoryId = x.CategoryId,
             }).Where(x => x.Id == id).ToArray();
             return Product[0];
+
         }
 
         public ProductListViewModel[] GetProductByCategory(int categoryId)
