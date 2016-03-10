@@ -5,3 +5,7 @@
 <hr />
 <h3>@Model.Price SEK</h3>
 <p>@Model.Stock i lager</p>
+
+<a href='@Url.Action("ShoppingCart", "Products", new { id = Model.Id })'><input class="btn btn-info" type="button" value="Add to cart" /></a>
+
+@*<input class="btn btn-info" type="button" value="Add to cart" src="~/products/index" />*@
