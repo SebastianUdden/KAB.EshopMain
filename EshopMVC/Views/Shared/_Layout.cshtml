@@ -27,10 +27,6 @@
     <script src="app.js"></script>
 </head>
 <body>
-    @if (Context.Request.Cookies.Count() > 0)
-    {
-        <p>Welcome @Context.Request.Cookies.Keys.Last().ToString()</p>
-    }
     <header>
         <div class="containerLeft">
             <nav class="navbar navbar-default">
@@ -53,17 +49,29 @@
                             </div>
                         </div>
                     </div>
-                     
+
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Nyheter</a></li>
                         <li><a href="#/shopping-cart"><span class="glyphicon glyphicon-shopping-cart"></span> Kundvagn</a></li>
                         <li><a href="~/products/createproduct"><span class="glyphicon glyphicon-link"></span> Produktregistrering</a></li>
+                        @if (Context.Request.Cookies.Keys.Count() > 0)
+                        {
+                            @foreach (var item in Context.Request.Cookies)
+                            {
+                                if (item.Key == "FirstName")
+                                {
+                                    <li><a><span class="glyphicon glyphicon-briefcase"></span> welcome @item.Value </a></li>
+                                }
+                            }
+                        }
+                        else
+                        {
                         <li><a href="~/customers/create"><span class="glyphicon glyphicon-user"></span> Registrering</a></li>
-                        <li><a href="~/customers/login"><span class="glyphicon glyphicon-log-in"></span> Inloggning</a></li>
-                        <li><a href="#/iterations"><span class="glyphicon glyphicon-cog"></span> Utvecklingsfaser</a></li>
+                        <li><a href="~/customers/login"><span class="glyphicon glyphicon-log-in"></span> Inloggning </a></li>
+                        }
+                        <li><a href = "#/iterations"><span class="glyphicon glyphicon-cog"></span> Utvecklingsfaser </a></li>
                     </ul>
                 </div>
-            </div>
         </nav>
         </div>
     </header>
@@ -81,8 +89,8 @@
                     <li><a href="~/products/productcategory/4"><span class="glyphicon glyphicon-paperclip"></span> Skrivare</a></li>
                     <li><a href="~/products/productcategory/5"><span class="glyphicon glyphicon-cutlery"></span> Kök</a></li>
                     <li><a href="~/products/productcategory/6"><span class="glyphicon glyphicon-globe"></span> Övrigt</a></li>
-        </ul>
-    </div>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -172,10 +180,13 @@
         <li><span class="glyphicon glyphicon-paperclip"></span> Skrivare</li>
         <li><span class="glyphicon glyphicon-cutlery"></span> Kök</li>
         <li><span class="glyphicon glyphicon-globe"></span> Övrigt</li>
-        @*<li><span class="glyphicon glyphicon-pushpin"></span> Häftstift</li>
+        @*
+        <li><span class="glyphicon glyphicon-pushpin"></span> Häftstift</li>
         <li><span class="glyphicon glyphicon-wrench"></span> Dylikt & saxar</li>*@
-    @*</ul>*@
-    @*</div>*@
+    @*
+        </ul>*@
+    @*
+        </div>*@
     <div id="asideRight">
     </div>
     <div id="footer">
