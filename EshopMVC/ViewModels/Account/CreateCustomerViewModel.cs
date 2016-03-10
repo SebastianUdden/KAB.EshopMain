@@ -42,6 +42,9 @@ namespace EshopMVC.ViewModel
         [Display(Name = "Social Security Number")]
         [Required(ErrorMessage ="Ssn is required")]
         public string Ssn { get; set; }
+        
+        [Range(typeof(bool), "true", "true", ErrorMessage = "Du måste gå med på våra sjuka villkor")]
+        public bool AcceptTerms { get; set; }
 
     }
 }
