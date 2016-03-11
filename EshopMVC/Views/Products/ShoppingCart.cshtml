@@ -15,14 +15,16 @@
             </tr>
         }
     </table>
-    @if(Context.Request.Cookies["Id"].Count > 0)
+    <a href='@Url.Action("CheckoutComplete", "Products")'><input class="btn btn-info" type="button" value="Checkout" /></a>
+
+    @*@if(Context.Request.Cookies["Id"].Count > 0)
     {
-    <a href='@Url.Action("CheckoutComplete", "Products", Context.Request.Cookies["Id"].First().ToString())'><input class="btn btn-info" type="button" value="Checkout" /></a>
+    <a href='@Url.Action("CheckoutComplete", "Products", Context.Request.Cookies["Id"].First())'><input class="btn btn-info" type="button" value="Checkout" /></a>
     }
     else
     {
         <a href='@Url.Action("CheckoutComplete", "Products", "-1")'><input class="btn btn-info" type="button" value="Checkout" /></a>
-    }
+    }*@
 }
 else
 {
