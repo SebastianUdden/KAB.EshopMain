@@ -78,11 +78,18 @@ namespace EshopMVC.Controllers
             return View();
         }
 
-        public IActionResult CheckoutComplete()
+        public IActionResult CheckoutComplete(string id)
         {
-            var productDataManager = new ProductDataManager(Context/*, Context2, Context3*/);
-            productDataManager.RegisterCheckout();
-            return View();
+            int customerId = 6;
+            bool tryParse = int.TryParse(id, out customerId);
+            //if (tryParse)
+            //{
+                var productDataManager = new ProductDataManager(Context/*, Context2, Context3*/);
+                productDataManager.RegisterCheckout(customerId);
+                return View();
+            //}
+            //return View();
+            
         }
     }
 }

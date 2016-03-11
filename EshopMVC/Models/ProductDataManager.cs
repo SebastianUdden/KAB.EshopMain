@@ -111,25 +111,34 @@ namespace EshopMVC.Models
             }).ToList();
             return ProductList;
         }
-        public void RegisterCheckout()
+        public void RegisterCheckout(int id)
         {
-            var orderId = CreateOrder();
-            foreach (var item in ShoppingCartList)
+            ///ENDAST FÖR TESTNING
+            ///
+            id = 6;
+            if (id > 0)
             {
-                var p = new OrderDetail();
-                p.ProductId = item.Id;
-                p.Quantity = 1;
-                p.CurrentPrice = item.Price;
-                p.OrderId = orderId;
+                var orderId = CreateOrder(id);
+                foreach (var item in ShoppingCartList.GroupBy(x=>x.Id))
+                {
 
-                Context.OrderDetails.Add(p);
-                Context.SaveChanges();
+                    var p = new OrderDetail();
+                    p.ProductId = item.First().Id;
+                    p.Quantity = item.Count();
+                    p.CurrentPrice = item.First().Price;
+                    p.OrderId = orderId;
+
+                    Context.OrderDetails.Add(p);
+                    Context.SaveChanges();
+                }
+                ShoppingCartList.Clear();
             }
         }
-        public int CreateOrder()
+        public int CreateOrder(int id)
         {
             DateTime dateTime = DateTime.Now;
             var o = new Order();
+            o.CustomerId = id;
             Context.Orders.Add(o);
             Context.SaveChanges();
 

@@ -10,5 +10,6 @@ namespace EshopMVC.Models
         public string Comment{ get; set; }
         public int Id{ get; set; }
         public DateTime Date { get; set; }
+        public int CustomerId { get; set; }
     }
 }

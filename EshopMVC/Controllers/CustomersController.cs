@@ -33,10 +33,10 @@ namespace EshopMVC.Controllers
             {
                 return View(viewModel);
             }
-                var dataManager = new DataManager(context);
-                dataManager.AddCustomer(viewModel);
-                //var x = dataManager.GetCustomer(1);
-                return RedirectToAction(nameof(CustomersController.Login));
+            var dataManager = new DataManager(context);
+            dataManager.AddCustomer(viewModel);
+            //var x = dataManager.GetCustomer(1);
+            return RedirectToAction(nameof(CustomersController.Login));
         }
         public IActionResult Login()
         {
@@ -50,19 +50,20 @@ namespace EshopMVC.Controllers
                 return View(viewModel);
             }
 
-            
+
             var dataManager = new DataManager(context);
             HttpContext.Authentication.SignOutAsync("Cookies");
             var a = dataManager.GetCustomer(viewModel.Email, viewModel.Password);
-            if(a != null && a.Length>0)
+            if (a != null && a.Length > 0)
             {
-            var s = new Claim("FirstName",a.First().FirstName);
-            var newId = new ClaimsIdentity("application", "name", "role");
-            newId.AddClaim(new Claim("FirstName", a.First().FirstName));
-            newId.AddClaim(new Claim("Email", a.First().Email));
-            HttpContext.Authentication.SignInAsync("Cookies", new ClaimsPrincipal(newId));
-            Response.Cookies.Append("Email", a.First().Email);
-            Response.Cookies.Append("FirstName", a.First().FirstName);
+                var s = new Claim("FirstName", a.First().FirstName);
+                var newId = new ClaimsIdentity("application", "name", "role");
+                newId.AddClaim(new Claim("FirstName", a.First().FirstName));
+                newId.AddClaim(new Claim("Email", a.First().Email));
+                HttpContext.Authentication.SignInAsync("Cookies", new ClaimsPrincipal(newId));
+                Response.Cookies.Append("Email", a.First().Email);
+                Response.Cookies.Append("FirstName", a.First().FirstName);
+                Response.Cookies.Append("Id", a.First().Id.ToString());
                 return RedirectToAction(nameof(CustomersController.MyPages));
             }
             //var x = dataManager.GetCustomer(1);
