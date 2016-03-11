@@ -5,18 +5,10 @@
     <title>KAB - Kontorsbutiken online</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
     <link href="~/css/superstil.css" rel="stylesheet" />
-    <style>
-        html, body, input, select, textarea {
-            font-size: 1.05em;
-        }
-    </style>
-
-
-
-    <link href="app.css" rel="stylesheet" />
     <script src="//code.angularjs.org/1.3.0-rc.1/angular.min.js"></script>
     <script src="//code.angularjs.org/1.5.0-rc.2/angular-route.min.js"></script>
     <script src="//code.angularjs.org/1.5.0-rc.2/angular-resource.min.js"></script>
@@ -27,59 +19,75 @@
     <script src="~/bower_components/microsoft.jquery.unobtrusive.validation/jquery.validate.unobtrusive.min.js"></script>
     <script src="app.js"></script>
     <script src="~/script/superstil.js"></script>
+    <link href="~/css/app.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
     <header>
         <div class="containerLeft">
             <nav class="navbar navbar-default">
                 <div ng-controller="headerController">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="row">
                     <div class="container-fluid">
                         <br />
-                        <div class="nav navbar-nav navbar-left">
+                                                <div class="nav navbar-nav navbar">
+                                                    <div class="col-xs-6">
                             <div class="navbar-header">
-                                <a class="navbar-brand" href="~/home/index" style="font-size:40px">KAB <span class="glyphicon glyphicon-home"></span></a>
+                                                            <a class="navbar-brand" href="~/home/index" style="font-size:40px">KAB @*<span class="glyphicon glyphicon-home"></span>*@</a>
+
                             </div>
-                            <div class="col-md-6 col-md-offset-3">
+                                                    </div>
+                                                    <div class="col-xs-6">
                                 <div class="input-group">
                                     <input type="text" class="form-control" ng-model="searchResult" />
                                     <span class="input-group-btn">
                                         <a href="#/search-results" class="btn btn-primary">
                                             <span style="clear:both" class="glyphicon glyphicon-search"></span>
-                                        </a>
+                                                                </a>&nbsp&nbsp&nbsp&nbsp
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                     
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-10">
                     <ul class="nav navbar-nav navbar-right">
                         @*<li><a href="#"><span class="glyphicon glyphicon-globe"></span> Nyheter</a></li>*@
-                        <li><a href="~/products/shoppingcart"><span class="glyphicon glyphicon-shopping-cart"></span> Kundvagn</a></li>
-                        <li><a href="~/products/createproduct"><span class="glyphicon glyphicon-link"></span> Produktregistrering</a></li>
-                        @if (Context.Request.Cookies["FirstName"].Count != 0)
-                        {
-                            <li><a><span class="glyphicon glyphicon-briefcase"></span> Welcome @Context.Request.Cookies["FirstName"].First() </a></li>
+                                            <li><a href="~/products/shoppingcart">&nbsp&nbsp<span class="glyphicon glyphicon-shopping-cart"></span> Kundvagn</a></li>
+                                            <li><a href="~/products/createproduct">&nbsp&nbsp<span class="glyphicon glyphicon-link"></span> Produktregistrering</a></li>
+                                            @if (Context.Request.Cookies["FirstName"].Count != 0)
+                                            {
+                                                <li><a>&nbsp&nbsp<span class="glyphicon glyphicon-briefcase"></span> Welcome @Context.Request.Cookies["FirstName"].First() </a></li>
+                                                <li><a href="~/customers/logout">&nbsp&nbsp<span class="glyphicon glyphicon-briefcase"></span> Log out </a></li>
                         }
                         else
                         {
-                            <li><a href="~/customers/create"><span class="glyphicon glyphicon-user"></span> Registrering</a></li>
-                            <li><a href="~/customers/login"><span class="glyphicon glyphicon-log-in"></span> Inloggning </a></li>
+                                                <li><a href="~/customers/create">&nbsp&nbsp<span class="glyphicon glyphicon-user"></span> Registrering</a></li>
+                                                <li><a href="~/customers/login">&nbsp&nbsp<span class="glyphicon glyphicon-log-in"></span> Inloggning </a></li>
                         }
                         @*<li><a href="#/iterations"><span class="glyphicon glyphicon-cog"></span> Utvecklingsfaser </a></li>*@
                     </ul>
                 </div>
+                                    <div class="col-xs-2">
+                                    </div>
+                                </div>
+                            </div>
             </nav>
         </div>
     </header>
-
-    <div class="container">
-        @RenderBody()
+            </div>
     </div>
-
-    <nav class="navbar navbar-inverse sidebar-left" role="navigation">
-        <div class="container">
-            <div id="wrapper">
-                <ul class="nav navbar-nav navbar-right">
+        <div class="row">
+            <div class="col-xs-2">
+                <div id="bulletWrapper">
+                    <ul class="nav navbar-nav navbar-left">
                     <li><a href="~/products/productcategory/2"><span class="glyphicon glyphicon-pencil"></span> Pennor</a></li>
                     <li><a href="~/products/productcategory/3"><span class="glyphicon glyphicon-envelope"></span> Papper</a></li>
                     <li><a href="~/products/productcategory/4"><span class="glyphicon glyphicon-paperclip"></span> Skrivare</a></li>
@@ -88,106 +96,22 @@
         </ul>
     </div>
         </div>
-    </nav>
 
+            <div class="col-xs-10">
+                <div class="BodyContainer">
+                    @RenderBody()
+                    </div>
+                </div>
+            </div>
 
-    @*<div id="asideLeft">
-        <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="false">
-                            <span class="glyphicon glyphicon-pencil"></span> Pennor
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapse1" class="panel-collapse collapse in">
-                    <div class="panel-body">
-                        <span class="glyphicon glyphicon-pencil"></span> Pennor Sub
-                        <span class="glyphicon glyphicon-pencil"></span> Pennor Sub
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                            <span class="glyphicon glyphicon-envelope"></span> Papper
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapse2" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <span class="glyphicon glyphicon-envelope"></span> Papper Sub
-                        <span class="glyphicon glyphicon-envelope"></span> Papper Sub
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                            <span class="glyphicon glyphicon-paperclip"></span> Skrivare
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapse3" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <span class="glyphicon glyphicon-paperclip"></span> Skrivare Sub
-                        <span class="glyphicon glyphicon-paperclip"></span> Skrivare Sub
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                            <span class="glyphicon glyphicon-cutlery"></span> Kök
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapse3" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <span class="glyphicon glyphicon-cutlery"></span> Kök Sub
-                        <span class="glyphicon glyphicon-cutlery"></span> Kök Sub
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                            <span class="glyphicon glyphicon-globe"></span> Övrigt
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapse3" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <span class="glyphicon glyphicon-globe"></span> Övrigt Sub
-                        <span class="glyphicon glyphicon-globe"></span> Övrigt Sub
-                    </div>
-                </div>
-            </div>
+        @*<div id="asideRight">
         </div>*@
-
-    @*<ul class="noBullets">
-        <li><span class="glyphicon glyphicon-pencil"></span> Pennor</li>
-        <li><span class="glyphicon glyphicon-envelope"></span> Papper</li>
-        <li><span class="glyphicon glyphicon-paperclip"></span> Skrivare</li>
-        <li><span class="glyphicon glyphicon-cutlery"></span> Kök</li>
-        <li><span class="glyphicon glyphicon-globe"></span> Övrigt</li>
-        @*
-        <li><span class="glyphicon glyphicon-pushpin"></span> Häftstift</li>
-        <li><span class="glyphicon glyphicon-wrench"></span> Dylikt & saxar</li>*@
-    @*
-        </ul>*@
-    @*
-        </div>*@
-    <div id="asideRight">
-    </div>
-    <div id="footer" ><center>
+        <div id="footer">
+            <center>
+                <br />
     Häftapparatsgatan 7, Gemträsk <span class="glyphicon glyphicon-copyright-mark"></span>
 </center>
+    </div>
     </div>
     <script>
         $(function () {

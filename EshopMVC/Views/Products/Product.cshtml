@@ -1,11 +1,39 @@
 ﻿@model Product
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <img src="@Model.PictureLink" class="skerpning skerpning2 img-resp" alt="Cinque Terre">
 
-<h1>@Model.ProductName</h1>
-<p>@Model.ProductDescription</p>
-<hr />
-<h3>@Model.Price SEK</h3>
-<p>@Model.Stock i lager</p>
+            <h2>@Model.ProductName</h2>
+            <br />
 
-<a href='@Url.Action("ShoppingCart", "Products", new { id = Model.Id })'><input class="btn btn-info" type="button" value="Add to cart" /></a>
+            <p>@Model.ProductDescription</p>
+            <hr />
+            @*<h3>@Model.Price SEK</h3>
+                <br />
+                <p>@Model.Stock i lager</p>*@
 
-@*<input class="btn btn-info" type="button" value="Add to cart" src="~/products/index" />*@
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <h3>@Model.Price SEK</h3>
+                        <p>@Model.Stock i lager</p>
+                        <br />
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <br />
+                        <br />
+                        <a href='@Url.Action("ShoppingCart", "Products", new { id = Model.Id })'><input class="btn btn-info" type="button" value="Add to cart" /></a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            @*<input class="btn btn-info" type="button" value="Add to cart" src="~/products/index" />*@
+
+        </div>
+    </div>
+</div>

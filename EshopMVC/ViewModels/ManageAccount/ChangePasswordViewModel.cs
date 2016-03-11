@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EshopMVC.ViewModels.ManageAccount
+namespace EshopMVC.ViewModel
 {
     public class ChangePasswordViewModel
     {
