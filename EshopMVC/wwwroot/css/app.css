@@ -2,6 +2,11 @@
 /*-------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------*/
 
+ html {
+        /* Size of largest container or bigger */
+        min-width: 700px;
+    }
+
 .FullField {
     width: 95%;
 }
@@ -21,7 +26,9 @@
     }
 
 .nav.navbar-nav.navbar-left {
+    min-width:110px !important;
     background: linear-gradient(#63e6ff, #69aec3);
+    font-size: 15px;
 }
 
     .nav.navbar-nav.navbar-left li a {

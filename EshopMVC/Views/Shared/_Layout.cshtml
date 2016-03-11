@@ -25,92 +25,92 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-    <header>
-        <div class="containerLeft">
-            <nav class="navbar navbar-default">
-                <div ng-controller="headerController">
+                <header>
+                    <div class="containerLeft">
+                        <nav class="navbar navbar-default">
+                            <div ng-controller="headerController">
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="row">
-                    <div class="container-fluid">
-                        <br />
+                                            <div class="container-fluid">
+                                                <br />
                                                 <div class="nav navbar-nav navbar">
                                                     <div class="col-xs-6">
-                            <div class="navbar-header">
+                                                        <div class="navbar-header">
                                                             <a class="navbar-brand" href="~/home/index" style="font-size:40px">KAB @*<span class="glyphicon glyphicon-home"></span>*@</a>
 
-                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="col-xs-6">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" ng-model="searchResult" />
-                                    <span class="input-group-btn">
-                                        <a href="#/search-results" class="btn btn-primary">
-                                            <span style="clear:both" class="glyphicon glyphicon-search"></span>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" ng-model="searchResult" />
+                                                            <span class="input-group-btn">
+                                                                <a href="#/search-results" class="btn btn-primary">
+                                                                    <span style="clear:both" class="glyphicon glyphicon-search"></span>
                                                                 </a>&nbsp&nbsp&nbsp&nbsp
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-10">
-                    <ul class="nav navbar-nav navbar-right">
-                        @*<li><a href="#"><span class="glyphicon glyphicon-globe"></span> Nyheter</a></li>*@
+                                        <ul class="nav navbar-nav navbar-right">
+                                            @*<li><a href="#"><span class="glyphicon glyphicon-globe"></span> Nyheter</a></li>*@
                                             <li><a href="~/products/shoppingcart">&nbsp&nbsp<span class="glyphicon glyphicon-shopping-cart"></span> Kundvagn</a></li>
                                             <li><a href="~/products/createproduct">&nbsp&nbsp<span class="glyphicon glyphicon-link"></span> Produktregistrering</a></li>
                                             @if (Context.Request.Cookies["FirstName"].Count != 0)
-                        {
+                                            {
                                                 <li><a>&nbsp&nbsp<span class="glyphicon glyphicon-briefcase"></span> Welcome @Context.Request.Cookies["FirstName"].First() </a></li>
-                        }
-                        else
-                        {
+                                            }
+                                            else
+                                            {
                                                 <li><a href="~/customers/create">&nbsp&nbsp<span class="glyphicon glyphicon-user"></span> Registrering</a></li>
                                                 <li><a href="~/customers/login">&nbsp&nbsp<span class="glyphicon glyphicon-log-in"></span> Inloggning </a></li>
-                        }
-                        @*<li><a href="#/iterations"><span class="glyphicon glyphicon-cog"></span> Utvecklingsfaser </a></li>*@
-                    </ul>
-                </div>
+                                            }
+                                            @*<li><a href="#/iterations"><span class="glyphicon glyphicon-cog"></span> Utvecklingsfaser </a></li>*@
+                                        </ul>
+                                    </div>
                                     <div class="col-xs-2">
                                     </div>
                                 </div>
                             </div>
-            </nav>
-        </div>
-    </header>
+                        </nav>
+                    </div>
+                </header>
             </div>
-    </div>
+        </div>
         <div class="row">
             <div class="col-xs-2">
                 <div id="bulletWrapper">
                     <ul class="nav navbar-nav navbar-left">
-                    <li><a href="~/products/productcategory/2"><span class="glyphicon glyphicon-pencil"></span> Pennor</a></li>
-                    <li><a href="~/products/productcategory/3"><span class="glyphicon glyphicon-envelope"></span> Papper</a></li>
-                    <li><a href="~/products/productcategory/4"><span class="glyphicon glyphicon-paperclip"></span> Skrivare</a></li>
-                    <li><a href="~/products/productcategory/5"><span class="glyphicon glyphicon-cutlery"></span> Kök</a></li>
-                    <li><a href="~/products/productcategory/6"><span class="glyphicon glyphicon-globe"></span> Övrigt</a></li>
-        </ul>
-    </div>
-        </div>
+                        <li><a href="~/products/productcategory/2"><span class="glyphicon glyphicon-pencil"></span> Pennor</a></li>
+                        <li><a href="~/products/productcategory/3"><span class="glyphicon glyphicon-envelope"></span> Papper</a></li>
+                        <li><a href="~/products/productcategory/4"><span class="glyphicon glyphicon-paperclip"></span> Skrivare</a></li>
+                        <li><a href="~/products/productcategory/5"><span class="glyphicon glyphicon-cutlery"></span> Kök</a></li>
+                        <li><a href="~/products/productcategory/6"><span class="glyphicon glyphicon-globe"></span> Övrigt</a></li>
+                    </ul>
+                </div>
+            </div>
 
             <div class="col-xs-10">
                 <div class="BodyContainer">
                     @RenderBody()
-                    </div>
                 </div>
             </div>
+        </div>
 
         @*<div id="asideRight">
-        </div>*@
+            </div>*@
         <div id="footer">
             <center>
                 <br />
-    Häftapparatsgatan 7, Gemträsk <span class="glyphicon glyphicon-copyright-mark"></span>
-</center>
-    </div>
+                Häftapparatsgatan 7, Gemträsk <span class="glyphicon glyphicon-copyright-mark"></span>
+            </center>
+        </div>
     </div>
     <script>
         $(function () {
