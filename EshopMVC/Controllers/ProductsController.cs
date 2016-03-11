@@ -13,21 +13,12 @@ namespace EshopMVC.Controllers
     public class ProductsController : Controller
     {
         ProductContext Context;
-        //OrdersContext Context2;
-        //OrderDetailContext Context3;
 
         public ProductsController(ProductContext context)
         {
             this.Context = context;
         }
 
-        //public ProductsController(ProductContext context, OrdersContext context2, OrderDetailContext context3)
-        //{
-        //    this.Context = context;
-        //    this.Context2 = context2;
-        //    this.Context3 = context3;
-        //}
-        // GET: /<controller>/
         public IActionResult Index()
         {
             return View();
@@ -71,7 +62,7 @@ namespace EshopMVC.Controllers
             var productDataManager = new ProductDataManager(Context);
             productDataManager.AddProductToShoppingCart(id);
             var a = productDataManager.ShoppingCart();
-            if(a.Count > 0)
+            if (a.Count > 0)
             {
             return View(a);
             }
@@ -80,16 +71,20 @@ namespace EshopMVC.Controllers
 
         public IActionResult CheckoutComplete(string id)
         {
-            int customerId = 6;
-            bool tryParse = int.TryParse(id, out customerId);
-            //if (tryParse)
-            //{
-                var productDataManager = new ProductDataManager(Context/*, Context2, Context3*/);
-                productDataManager.RegisterCheckout(customerId);
-                return View();
-            //}
-            //return View();
-            
+            if (Request.Cookies["Id"].Count > 0)
+            {
+                int customerId;
+                bool tryParse = int.TryParse(Request.Cookies["Id"].First().ToString(), out customerId);
+
+                if (tryParse)
+        {
+                    var productDataManager = new ProductDataManager(Context/*, Context2, Context3*/);
+                    productDataManager.RegisterCheckout(customerId);
+            return View();
+        }
+    }
+            return RedirectToAction(nameof(CustomersController.Index));
+
         }
     }
 }
