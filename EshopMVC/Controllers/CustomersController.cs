@@ -8,6 +8,7 @@ using EshopMVC.ViewModel;
 
 using Microsoft.AspNet.Http.Authentication;
 using System.Security.Claims;
+using Microsoft.AspNet.Http;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -80,6 +81,15 @@ namespace EshopMVC.Controllers
         {
             return View();
         }
+        public IActionResult Logout()
+        {
+            CookieOptions myCookie = new CookieOptions() { Expires = DateTime.Now.AddDays(-1) };
+            
+            Response.Cookies.Append("Email", "", myCookie);
+            Response.Cookies.Append("FirstName", "", myCookie);
+            Response.Cookies.Append("Id", "", myCookie);
 
+            return RedirectToAction(nameof(CustomersController.Login));
+        }
     }
 }
