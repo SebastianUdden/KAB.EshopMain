@@ -13,21 +13,12 @@ namespace EshopMVC.Controllers
     public class ProductsController : Controller
     {
         ProductContext Context;
-        //OrdersContext Context2;
-        //OrderDetailContext Context3;
 
         public ProductsController(ProductContext context)
         {
             this.Context = context;
         }
 
-        //public ProductsController(ProductContext context, OrdersContext context2, OrderDetailContext context3)
-        //{
-        //    this.Context = context;
-        //    this.Context2 = context2;
-        //    this.Context3 = context3;
-        //}
-        // GET: /<controller>/
         public IActionResult Index()
         {
             return View();
@@ -71,16 +62,16 @@ namespace EshopMVC.Controllers
             var productDataManager = new ProductDataManager(Context);
             productDataManager.AddProductToShoppingCart(id);
             var a = productDataManager.ShoppingCart();
-            if(a.Count > 0)
+            if (a.Count > 0)
             {
-            return View(a);
+                return View(a);
             }
             return View();
         }
 
         public IActionResult CheckoutComplete()
         {
-            var productDataManager = new ProductDataManager(Context/*, Context2, Context3*/);
+            var productDataManager = new ProductDataManager(Context);
             productDataManager.RegisterCheckout();
             return View();
         }

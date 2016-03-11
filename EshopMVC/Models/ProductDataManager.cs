@@ -9,21 +9,12 @@ namespace EshopMVC.Models
     public class ProductDataManager
     {
         ProductContext Context;
-        //OrdersContext Context2;
-        //OrderDetailContext Context3;
         static List<Product> ShoppingCartList = new List<Product>();
 
         public ProductDataManager(ProductContext context)
         {
             this.Context = context;
         }
-
-        //public ProductDataManager(ProductContext context, OrdersContext context2, OrderDetailContext context3)
-        //{
-        //    this.Context = context;
-        //    this.Context2 = context2;
-        //    this.Context3 = context3;
-        //}
         public void AddProduct(CreateProductViewModel viewModel)
         {
             Product p = new Product();
@@ -73,8 +64,6 @@ namespace EshopMVC.Models
             }).Where(x => x.CategoryId == categoryId).ToArray();
             return Product;
         }
-
-
 
         public void AddProductToShoppingCart(int id)
         {
