@@ -64,7 +64,7 @@ namespace EshopMVC.Controllers
             var a = productDataManager.ShoppingCart();
             if (a.Count > 0)
             {
-            return View(a);
+                return View(a);
             }
             return View();
         }
@@ -77,12 +77,12 @@ namespace EshopMVC.Controllers
                 bool tryParse = int.TryParse(Request.Cookies["Id"].First().ToString(), out customerId);
 
                 if (tryParse)
-        {
+                {
                     var productDataManager = new ProductDataManager(Context/*, Context2, Context3*/);
                     productDataManager.RegisterCheckout(customerId);
-            return View();
-        }
-    }
+                    return View();
+                }
+            }
             return RedirectToAction(nameof(CustomersController.Index));
 
         }

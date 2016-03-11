@@ -79,9 +79,16 @@ namespace EshopMVC.Controllers
 
         public IActionResult MyPages()
         {
-            var dataManager = new DataManager(context);
-            var model = dataManager.GetOrderHistory(6);
-            return View(model);
+            
+            if (Request.Cookies["Id"].Count > 0)
+            {
+                var id = Convert.ToInt32(Request.Cookies["Id"].First());
+
+                var dataManager = new DataManager(context);
+                var model = dataManager.GetOrderHistory(id);
+                return View(model);
+            }
+            return View();
         }
         public IActionResult Logout()
         {
@@ -93,5 +100,11 @@ namespace EshopMVC.Controllers
 
             return RedirectToAction(nameof(CustomersController.Login));
         }
+        //public IActionResult ManageAccount()
+        //{
+        //    var dataManager = new DataManager(context);
+        //    dataManager.ManageAccount();
+        //    return View()
+        //}
     }
 }
