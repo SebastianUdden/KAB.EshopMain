@@ -2,9 +2,19 @@
 /*-------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------*/
 
- html {
-        /* Size of largest container or bigger */
-        min-width: 700px;
+html {
+    /* Size of largest container or bigger */
+    min-width: 700px;
+}
+
+.niceRows {
+    list-style-type: none;
+    background-color: white;
+}
+
+    .niceRows :hover {
+        list-style-type: none;
+        background: linear-gradient(#63e6ff, #69aec3);
     }
 
 .FullField {
@@ -26,7 +36,7 @@
     }
 
 .nav.navbar-nav.navbar-left {
-    min-width:110px !important;
+    min-width: 110px !important;
     background: linear-gradient(#63e6ff, #69aec3);
     font-size: 15px;
 }
@@ -79,8 +89,8 @@
     color: dimgrey;
     width: 74%;
     bottom: 0;
-    position: fixed;
-    top: 92%;
+    /*top: 92%;*/
+    /*position:relative;*/
     /*background: linear-gradient(white, #53bfd3);*/
 }
 
