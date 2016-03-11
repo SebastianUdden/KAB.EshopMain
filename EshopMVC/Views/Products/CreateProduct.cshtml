@@ -1,56 +1,12 @@
 ﻿@model CreateProductViewModel
-@*<div asp-validation-summary="ValidationSummary.All"></div>*@
 
-@*<form asp-controller="Home" asp-action="CreateProduct">
-    <label asp-for="ProductName"></label>
-    <br />
-    <input asp-for="ProductName" placeholder="Produktnamn" />
-    <br />
-    <span asp-validation-for="ProductName"></span>
-    <br />
-
-    <label asp-for="Price"></label>
-    <br />
-    <input asp-for="Price" placeholder="Pris" />
-    <br />
-    <span asp-validation-for="Price"></span>
-    <br />
-
-   tml.EnumDropDownListFor(model => model.Category)
-    @Html.DropDownListFor(m => m, Html.GetEnumSelectList(Model.GetType()))
-    @*<label asp-for="Category"></label>
-    <br />
-    <input asp-for="Category" placeholder="Produktkategori" />
-    <br />
-    <span asp-validation-for="Category"></span>
-    <br />
-
-    <label asp-for="ProductDescription"></label>
-    <br />
-    <input asp-for="ProductDescription" placeholder="Produktbeskrivning" />
-    <br />
-    <span asp-validation-for="ProductDescription"></span>
-    <br />
-
-    <label asp-for="AmountToAdd"></label>
-    <br />
-    <input asp-for="AmountToAdd" placeholder="Antal" />
-    <br />
-    <span asp-validation-for="AmountToAdd"></span>
-    <br />
-
-    <label asp-for="ImageURL"></label>
-    <br />
-    <input asp-for="ImageURL" placeholder="Bildens URL-adress" />
-    <br />
-    <span asp-validation-for="ImageURL"></span>
-    <br />
-
-    <input type="submit" value="CreateProduct" />
-</form>*@
+@if (Context.Request.Cookies["Admin"].Count() == 0)
+{
+    <p>Du ä ju int admin</p>
+}
 
 <div class="container">
-        <div class="row">
+    <div class="row">
             <div class="col-xs-12 col-sm-8 col-md-6 col-xs-offset-1">
                 <form asp-controller="Home" asp-action="CreateProduct">
                     <h2>Registrera ny produkt<small></small></h2>
