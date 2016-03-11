@@ -57,6 +57,11 @@ namespace EshopMVC.Controllers
             var a = dataManager.GetCustomer(viewModel.Email, viewModel.Password);
             if (a != null && a.Length > 0)
             {
+                var isAdmin = dataManager.GetAdminAccess(a.First().Id);
+                if(isAdmin)
+                {
+                    Response.Cookies.Append("Admin", "true");
+                }
                 var s = new Claim("FirstName", a.First().FirstName);
                 var newId = new ClaimsIdentity("application", "name", "role");
                 newId.AddClaim(new Claim("FirstName", a.First().FirstName));
