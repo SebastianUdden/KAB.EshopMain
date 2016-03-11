@@ -1,4 +1,11 @@
-﻿@if (Context.Request.Cookies["FirstName"].Count != 0)
-{
-    <h1>Welcome @Context.Request.Cookies["FirstName"].First()</h1>
-}
+﻿<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-xs-offset-1">
+            @if (Context.Request.Cookies["FirstName"].Count != 0)
+
+            {
+                <h1>Welcome @Context.Request.Cookies["FirstName"].First()</h1>
+            }
+        </div>
+    </div>
+</div>

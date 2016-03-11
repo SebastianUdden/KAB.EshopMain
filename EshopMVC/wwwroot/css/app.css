@@ -2,6 +2,11 @@
 /*-------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------*/
 
+ html {
+        /* Size of largest container or bigger */
+        min-width: 700px;
+    }
+
 .FullField {
     width: 95%;
 }
@@ -21,7 +26,9 @@
     }
 
 .nav.navbar-nav.navbar-left {
+    min-width:110px !important;
     background: linear-gradient(#63e6ff, #69aec3);
+    font-size: 15px;
 }
 
     .nav.navbar-nav.navbar-left li a {
@@ -30,7 +37,7 @@
 
         .nav.navbar-nav.navbar-left li a:hover {
             color: #b1ffd0;
-            background:rgba(0, 0, 0, 0.00);
+            background: rgba(0, 0, 0, 0.00);
         }
 
 .navbar-default .navbar-brand {
@@ -70,7 +77,7 @@
     font-size: 16px;
     text-align: center;
     color: dimgrey;
-    width:74%;
+    width: 74%;
     bottom: 0;
     position: fixed;
     top: 92%;

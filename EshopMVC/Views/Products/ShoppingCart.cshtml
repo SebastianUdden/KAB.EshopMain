@@ -1,33 +1,49 @@
 ﻿@model List<ProductListViewModel>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-xs-offset-1">
+            <h2>Varukorg<small></small></h2>
+            <div class="row">
+                <br />
+            </div>
+                    @if (Model != null)
+            {
+                        <table class="table-hover table">
+                            <tr>
+                                <th>Varor</th>
+                                <th>Pris</th>
 
-@if (Model != null)
-{
-    <table>
-        <tr>
-            <th>Produktnamn</th>
-            <th>Pris</th>
-        </tr>
-        @foreach (var product in Model)
-        {
-            <tr>
-                <td>@product.ProductName</td>
-                <td>@product.Price</td>
-            </tr>
-        }
-    </table>
-    <a href='@Url.Action("CheckoutComplete", "Products")'><input class="btn btn-info" type="button" value="Checkout" /></a>
+                            </tr>
+                            
 
-    @*@if(Context.Request.Cookies["Id"].Count > 0)
-    {
-    <a href='@Url.Action("CheckoutComplete", "Products", Context.Request.Cookies["Id"].First())'><input class="btn btn-info" type="button" value="Checkout" /></a>
-    }
-    else
-    {
-        <a href='@Url.Action("CheckoutComplete", "Products", "-1")'><input class="btn btn-info" type="button" value="Checkout" /></a>
-    }*@
-}
-else
-{
-        <h2>Your cart is empty!</h2>
-}
+                            @foreach (var product in Model)
+                            {
+                                <tr>
+                                    <td>@product.ProductName</td>
+                                    <td>@product.Price</td>
+                                </tr>
+                            }
+                        </table>
+                        <div class="row">
+                            <div class="col-xs-6"></div>
+                            <div class="col-xs-6">
+                                <a href='@Url.Action("CheckoutComplete", "Products")'><input class="btn btn-primary btn-block btn-lg" type="button" value="Checkout" /></a>
+                                </div>
+                            </div>
+                                @*@if(Context.Request.Cookies["Id"].Count > 0)
+            {
+            <a href='@Url.Action("CheckoutComplete", "Products", Context.Request.Cookies["Id"].First())'><input class="btn btn-info" type="button" value="Checkout" /></a>
+            }
+            else
+            {
+                <a href='@Url.Action("CheckoutComplete", "Products", "-1")'><input class="btn btn-info" type="button" value="Checkout" /></a>
+            }*@
+                                }
+                                else
+                                {
+                                <h2>Your cart is empty!</h2>
+                                }
 
+                            </div>
+            </div>
+</div>

@@ -63,7 +63,7 @@
                                             <li><a href="~/products/shoppingcart">&nbsp&nbsp<span class="glyphicon glyphicon-shopping-cart"></span> Kundvagn</a></li>
                                             <li><a href="~/products/createproduct">&nbsp&nbsp<span class="glyphicon glyphicon-link"></span> Produktregistrering</a></li>
                                             @if (Context.Request.Cookies["FirstName"].Count != 0)
-                                            {
+                        {
                                                 <li><a>&nbsp&nbsp<span class="glyphicon glyphicon-briefcase"></span> Welcome @Context.Request.Cookies["FirstName"].First() </a></li>
                                                 <li><a href="~/customers/logout">&nbsp&nbsp<span class="glyphicon glyphicon-briefcase"></span> Log out </a></li>
                         }
@@ -97,7 +97,7 @@
     </div>
         </div>
 
-            <div class="col-xs-10 col-xs-pull-2">
+            <div class="col-xs-10">
                 <div class="BodyContainer">
                     @RenderBody()
                     </div>
