@@ -141,9 +141,10 @@ namespace EshopMVC.Models
         }
         public int CreateOrder(int id)
         {
-            DateTime dateTime = DateTime.Now;
+            DateTime dateTime = DateTime.Today;
             var o = new Order();
             o.CustomerId = id;
+            o.Date = dateTime;
             Context.Orders.Add(o);
             Context.SaveChanges();
 
