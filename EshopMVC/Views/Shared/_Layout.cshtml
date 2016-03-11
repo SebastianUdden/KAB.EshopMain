@@ -17,18 +17,18 @@
     <script src="~/script/jquery.validate.min.js"></script>
     <script src="~/script/jquery.validate.unobtrusive.js"></script>
     <script src="~/bower_components/microsoft.jquery.unobtrusive.validation/jquery.validate.unobtrusive.min.js"></script>
-    <script src="app.js"></script>
+    <script src="~/script/app.js"></script>
     <script src="~/script/superstil.js"></script>
     <link href="~/css/app.css" rel="stylesheet" />
 </head>
-<body>
+<body ng-app="myApp">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <header>
                     <div class="containerLeft">
                         <nav class="navbar navbar-default">
-                            <div ng-controller="headerController">
+                            <div>
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="row">
@@ -43,13 +43,14 @@
                                                     </div>
                                                     <div class="col-xs-6">
                                                         <div class="input-group">
-                                                            <input type="text" class="form-control" ng-model="searchResult" />
+                                                            <input type="text" class="form-control" />
                                                             <span class="input-group-btn">
-                                                                <a href="~/products/search/1" class="btn btn-primary">
-                                                                    <span style="clear:both" class="glyphicon glyphicon-search"></span>
-                                                                </a>&nbsp&nbsp&nbsp&nbsp
-                                                            </span>
+                                                                <a href="~/products/search/" class="btn btn-primary">
+                                                                    @*<a href='@Url.Action("Search", "Products", searchQuery)' class="btn btn-primary">*@
+                                                                        <span style="clear:both" class="glyphicon glyphicon-search"></span>
+                                                                    </a>&nbsp&nbsp&nbsp&nbsp</span>
                                                         </div>
+                                                        <p>{{ searchQuery }}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -64,7 +65,7 @@
                                             <li><a href="~/products/createproduct">&nbsp&nbsp<span class="glyphicon glyphicon-link"></span> Produktregistrering</a></li>
                                             @if (Context.Request.Cookies["FirstName"].Count != 0)
                                             {
-                                                <li><a>&nbsp&nbsp<span class="glyphicon glyphicon-briefcase"></span> Welcome @Context.Request.Cookies["FirstName"].First() </a></li>
+                                                <li><a href="~/customers/mypages">&nbsp&nbsp<span class="glyphicon glyphicon-briefcase"></span> Welcome @Context.Request.Cookies["FirstName"].First() </a></li>
                                                 <li><a href="~/customers/logout">&nbsp&nbsp<span class="glyphicon glyphicon-briefcase"></span> Log out </a></li>
                                             }
                                             else
@@ -114,6 +115,10 @@
         </div>
     </div>
     <script>
+        var app = angular.module('myApp', [
+    'jcs-autoValidate',
+        ]);
+
         $(function () {
             $('.button-checkbox').each(function () {
 

@@ -98,7 +98,7 @@ namespace EshopMVC.Models
                 CategoryId = x.CategoryId
             }).ToArray();
 
-            return productList.Where(x => x.ProductName.Contains(searchQuery)).ToArray();
+            return productList.Where(x => x.ProductName.ToLower().Contains(searchQuery.ToLower())).ToArray();
         } 
 
         public List<ProductListViewModel> ShoppingCart()
