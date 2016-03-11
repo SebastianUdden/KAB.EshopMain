@@ -71,25 +71,29 @@ namespace EshopMVC.Controllers
             var productDataManager = new ProductDataManager(Context);
             productDataManager.AddProductToShoppingCart(id);
             var a = productDataManager.ShoppingCart();
-            if(a.Count > 0)
+            if (a.Count > 0)
             {
-            return View(a);
+                return View(a);
             }
             return View();
         }
 
         public IActionResult CheckoutComplete(string id)
         {
-            int customerId = 6;
-            bool tryParse = int.TryParse(id, out customerId);
-            //if (tryParse)
-            //{
-                var productDataManager = new ProductDataManager(Context/*, Context2, Context3*/);
-                productDataManager.RegisterCheckout(customerId);
-                return View();
-            //}
-            //return View();
-            
+            if (Request.Cookies["Id"].Count > 0)
+            {
+                int customerId;
+                bool tryParse = int.TryParse(Request.Cookies["Id"].First().ToString(), out customerId);
+
+                if (tryParse)
+                {
+                    var productDataManager = new ProductDataManager(Context/*, Context2, Context3*/);
+                    productDataManager.RegisterCheckout(customerId);
+                    return View();
+                }
+            }
+            return RedirectToAction(nameof(CustomersController.Index));
+
         }
     }
 }

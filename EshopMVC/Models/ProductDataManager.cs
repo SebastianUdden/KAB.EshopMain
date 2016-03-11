@@ -113,9 +113,7 @@ namespace EshopMVC.Models
         }
         public void RegisterCheckout(int id)
         {
-            ///ENDAST FÖR TESTNING
-            ///
-            id = 6;
+            
             if (id > 0)
             {
                 var orderId = CreateOrder(id);
