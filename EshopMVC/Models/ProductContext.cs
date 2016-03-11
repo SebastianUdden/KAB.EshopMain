@@ -12,7 +12,6 @@ namespace EshopMVC.Models
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
 
-        public DbSet<OrderHistory> OrderHistory { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
