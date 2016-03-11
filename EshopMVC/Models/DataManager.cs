@@ -31,6 +31,16 @@ namespace EshopMVC.Models
             Context.Customers.Add(c);
             Context.SaveChanges();
         }
+        public bool GetAdminAccess(int id)
+        {
+            int tmp = Context.Admin.Where(x => x.UserId == id).ToList().Count();
+
+            if (tmp ==1)
+            {
+                return true;
+            }
+            return false;
+        }
 
         public Customer[] GetCustomer(string email, string password)
         {
