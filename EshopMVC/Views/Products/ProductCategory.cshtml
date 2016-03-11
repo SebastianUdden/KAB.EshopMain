@@ -29,7 +29,7 @@
             <ul class="niceRows">
                 @foreach (var item in Model)
                 {
-                    <li href="~/products/product/@item.Id">
+                    <a href="~/products/product/@item.Id">
                         @if (item.ImageURL.Length > 0)
                         {
                             <img src=@item.ImageURL height="40" width="40">
@@ -43,7 +43,7 @@
                         &emsp;
                         &emsp;
                         @item.Price
-                    </li>
+                    </a>
                 }
             </ul>
             @*<table class="niceRows">
