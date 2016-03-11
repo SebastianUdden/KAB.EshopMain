@@ -11,93 +11,11 @@
         <div class="col-md-8">
             <section>
                 <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal" role="form">
-                    <h4>Logga in med ditt KAB-konto.</h4>
-                    <hr />
-                    <div asp-validation-summary="ValidationSummary.All" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="Email" class="col-md-2 control-label"></label>
-                        <div class="col-md-10">
-                            <input asp-for="Email" class="form-control" />
-                            <span asp-validation-for="Email" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Password" class="col-md-2 control-label"></label>
-                        <div class="col-md-10">
-                            <input asp-for="Password" class="form-control" />
-                            <span asp-validation-for="Password" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <div class="checkbox">
-                                <input asp-for="RememberMe" />
-                                <label asp-for="RememberMe"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <button type="submit" class="btn btn-default">Log in</button>
-                        </div>
-                    </div>
-                    <p>
-                        <a asp-action="Register">Registrera konto</a>
-                    </p>
-                    <p>
-                        <a asp-action="ForgotPassword">Mitt lösenord fungerar inte, det är fel på systemet</a>
-                    </p>
-                </form>
-            </section>
-        </div>
+                 </div>
     </div>*@
 
 @* Testar lite varianter *@
 
-
-@*<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
-    <div id="login-overlay" class="modal-dialog">
-        <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" role="form">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Logga in med ditt KAB-konto</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="well">
-                                <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
-                                    <div class="form-group">
-                                        <label asp-for="Email" class="control-label"></label>
-                                        <input asp-for="Email" class="form-control" placeholder="example@gmail.com" />
-                                        <span asp-validation-for="Email" class="help-block"></span>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label asp-for="Password" class="control-label"></label>
-                                        <input asp-for="Password" class="form-control" placeholder="example@gmail.com" />
-                                        <span asp-validation-for="Password" class="help-block"></span>
-                                    </div>
-                                    <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
-                                    <div class="checkbox">
-                                        <input asp-for="RememberMe" />
-                                        <label asp-for="RememberMe"></label>
-                                    </div>
-                                    <button type="submit" class="btn btn-success btn-block">Login</button>
-                                    <a asp-action="ForgotPassword" class="btn btn-default btn-block">Glömt lösenord?</a>
-                                    <a asp-action="Register" class="btn btn-default btn-block">Registrera konto</a>
-                                    <a href="/customers/create" class="btn btn-default btn-block">Registrera konto</a>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-
-    </div>*@
 
 @* nytt försök *@
 
@@ -120,14 +38,23 @@
                         <span asp-validation-for="Password" type="password" placeholder="Lösenord" class="help-block"></span>
                     </div>
                 </div>
-                @*<hr class="colorgraph">*@
                 <div class="row">
-                    <button type="submit" class="btn btn-primary btn-block btn-lg">Login</button>
-                    @*<a asp-action="ForgotPassword" class="col-xs-12 col-md-6">Glömt lösenord?</a>
-                <div>
-                        <a asp-action="Register" value="Registrera" class="btn btn-primary btn-block btn-lg" tabindex="8"></a></div>
-                        @*<div class="col-xs-12 col-md-6"><a href="~/customers/login" class="btn btn-success btn-block btn-lg"></a></div>*@
+                    <br />
                 </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">Login</button>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <a href="~/customers/register" class="btn btn-success btn-block btn-lg">Ej konto? - Registrera här!</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <br />
+                </div>
+
+                @*<a asp-action="ForgotPassword" class="col-xs-12 col-md-6">Glömt lösenord?</a>*@
+
             </form>
         </div>
     </div>
