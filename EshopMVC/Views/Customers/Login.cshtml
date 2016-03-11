@@ -20,16 +20,19 @@
 @* nytt försök *@
 
 <div class="container">
-
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
             <form asp-controller="Customers" asp-action="Create" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" role="form">
                 <h2>Inloggning <small>Logga in här med ditt KAB-konto</small></h2>
                 @*<hr class="colorgraph">*@
                 <div class="row">
+                    <br />
+                </div>
+                <div class="row">
                     <div class="form-group">
                         <input asp-for="Email" placeholder="Email: exempel@email.com" class="form-control input-lg" tabindex="1">
                         <span asp-validation-for="Email" class="help-block"></span>
+                        <br />
                     </div>
                 </div>
                 <div class="row">
@@ -47,6 +50,16 @@
                     </div>
                     <div class="col-xs-12 col-md-6">
                         <a href="~/customers/register" class="btn btn-success btn-block btn-lg">Ej konto? - Registrera här!</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <br />
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <p>Glömst lösenord? <a href="#">Klicka här</a></p>
                     </div>
                 </div>
                 <div class="row">
