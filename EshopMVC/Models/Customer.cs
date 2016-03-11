@@ -14,5 +14,6 @@ namespace EshopMVC.Models
         public string Password { get; set; }
         public string Adress { get; set; }
         public string Ssn { get; set; }
+        
     }
 }

@@ -12,7 +12,7 @@
     @*<script src="//code.angularjs.org/1.5.0-rc.2/angular-route.min.js"></script>
         <script src="//code.angularjs.org/1.5.0-rc.2/angular-resource.min.js"></script>*@
     @*<script src="jcs-auto-validate.min.js"></script>*@
-
+    <script src="~/script/angular.min.js"></script>
     <script src="~/script/app.js"></script>
     <script src="~/script/jquery.min.js"></script>
     <script src="~/script/jquery.validate.min.js"></script>
@@ -44,22 +44,25 @@
                                                                     <img class="img-responsive2"
                                                                          src="~/photos/litenkab.png">
                                                                     <br />
-                                                                    <a class="col-xs-12 col-xs-offset-5" style="color:white;font-size:larger">Kontorsprylar AB</a>
+                                                                    <p class="col-xs-12 col-xs-offset-5" style="color:white;font-size:larger">Kontorsprylar AB</p>
                                                                 </a>
                                                             </a>
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-6">
                                                         <div class="input-group">
-                                                            <input type="text" class="form-control" />
+                                                            <input type="text" class="form-control" ng-model="searchQuery" />
                                                             <span class="input-group-btn">
-                                                                <a href="~/products/search/" class="btn btn-primary">
+                                                                <a href="~/products/search/{{searchQuery}}" class="btn btn-primary">
                                                                     @*<a href='@Url.Action("Search", "Products", searchQuery)' class="btn btn-primary">*@
                                                                     <span style="clear:both" class="glyphicon glyphicon-search"></span>
                                                                 </a>&nbsp&nbsp&nbsp&nbsp
                                                             </span>
                                                         </div>
-                                                        <p>{{ searchQuery }}</p>
+                                                        @*<div ng-init="searchQuery='John'">
+                                                            <p>Name: <input type="text"  /></p>
+                                                            <p>You wrote: </p>
+                                                        </div>*@
                                                     </div>
                                                 </div>
                                             </div>
