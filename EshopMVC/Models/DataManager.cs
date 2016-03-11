@@ -33,9 +33,14 @@ namespace EshopMVC.Models
         }
         public bool GetAdminAccess(int id)
         {
-            int tmp = Context.Admin.Where(x => x.UserId == id).ToList().Count();
+            var tmp = Context.Admin.Select(x => new Admin
+            {
+                UserId = x.UserId
+            }).Where(x => x.UserId == id).ToArray();
 
-            if (tmp ==1)
+
+
+            if (tmp.Count() == 1)
             {
                 return true;
             }
@@ -54,7 +59,7 @@ namespace EshopMVC.Models
                 Password = x.Password,
                 Adress = x.Adress,
                 Ssn = x.Ssn
-            }).Where(x => x.Email == email && x.Password == password).ToArray()/*.Where(x => x.Id == id)*/;
+            }).Where(x => x.Email == email && x.Password == password).ToArray();
             return Customer;
         }
 

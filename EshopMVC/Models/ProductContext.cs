@@ -18,9 +18,6 @@ namespace EshopMVC.Models
             modelBuilder.Entity<Product>().ToTable("Products");
             modelBuilder.Entity<Order>().ToTable("Orders");
             modelBuilder.Entity<OrderDetail>().ToTable("OrderDetail");
-            //modelBuilder.Entity<Order>().ToTable("Orders");
-            //modelBuilder.Entity<OrderDetail>().ToTable("OrderDetails");
-
         }
     }
 }

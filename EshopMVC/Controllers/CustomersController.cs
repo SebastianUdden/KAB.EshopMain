@@ -57,19 +57,24 @@ namespace EshopMVC.Controllers
             var a = dataManager.GetCustomer(viewModel.Email, viewModel.Password);
             if (a != null && a.Length > 0)
             {
-                var isAdmin = dataManager.GetAdminAccess(a.First().Id);
-                if(isAdmin)
-                {
-                    Response.Cookies.Append("Admin", "true");
-                }
                 var s = new Claim("FirstName", a.First().FirstName);
                 var newId = new ClaimsIdentity("application", "name", "role");
+
                 newId.AddClaim(new Claim("FirstName", a.First().FirstName));
                 newId.AddClaim(new Claim("Email", a.First().Email));
+                newId.AddClaim(new Claim("Id", a.First().Id.ToString()));
+
                 HttpContext.Authentication.SignInAsync("Cookies", new ClaimsPrincipal(newId));
+
                 Response.Cookies.Append("Email", a.First().Email);
                 Response.Cookies.Append("FirstName", a.First().FirstName);
                 Response.Cookies.Append("Id", a.First().Id.ToString());
+
+                var isAdmin = dataManager.GetAdminAccess(a.First().Id);
+                if (isAdmin)
+                {
+                    Response.Cookies.Append("Admin", "true");
+                }
                 return RedirectToAction(nameof(CustomersController.MyPages));
             }
             //var x = dataManager.GetCustomer(1);
@@ -102,7 +107,7 @@ namespace EshopMVC.Controllers
             Response.Cookies.Append("Email", "", myCookie);
             Response.Cookies.Append("FirstName", "", myCookie);
             Response.Cookies.Append("Id", "", myCookie);
-
+            Response.Cookies.Append("Admin", "", myCookie);
             return RedirectToAction(nameof(CustomersController.Login));
         }
         //public IActionResult ManageAccount()
