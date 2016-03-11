@@ -6,10 +6,6 @@
     });
 });
 
-//var app = angular.module('minMax', [
-//    'jcs-autoValidate',
-//]);
-
 //app.run(function (defaultErrorMessageResolver) {
 //    defaultErrorMessageResolver.getErrorMessages().then(function (errorMessages) {
 //        errorMessages['tooYoung'] = 'You must be at least {0} years old to use this site';

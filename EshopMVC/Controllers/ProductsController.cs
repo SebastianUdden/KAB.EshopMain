@@ -87,11 +87,11 @@ namespace EshopMVC.Controllers
 
         }
 
-        public IActionResult Search(int searchQuery)
+        public IActionResult Search(string id)
         {
             var productDataManager = new ProductDataManager(Context);
-            //var model = productDataManager.GetProductByQuery(searchQuery);
-            return View(/*model*/);
+            var model = productDataManager.GetProductByQuery(id);
+            return View(model);
         }
     }
 }
