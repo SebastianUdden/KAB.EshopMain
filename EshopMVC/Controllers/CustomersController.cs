@@ -79,7 +79,9 @@ namespace EshopMVC.Controllers
 
         public IActionResult MyPages()
         {
-            return View();
+            var dataManager = new DataManager(context);
+            var model = dataManager.GetOrderHistory(6);
+            return View(model);
         }
         public IActionResult Logout()
         {
