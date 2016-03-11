@@ -1,13 +1,14 @@
 ﻿@model CreateCustomerViewModel
 
 <div class="container">
-
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
             <form asp-controller="Customers" asp-action="Create" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" role="form">
                 <h2>Registrera Konto <small>snabbt och smidigt</small></h2>
                 @*<hr class="colorgraph">*@
-
+                <div class="row">
+                    <br />
+                </div>
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6">
@@ -20,14 +21,14 @@
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
                             <input asp-for="LastName" class="form-control input-lg" placeholder="Efternamn" tabindex="2">
-                            <span asp-validation-for="LastName"class="text-danger"></span>
+                            <span asp-validation-for="LastName" class="text-danger"></span>
                             <br />
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <input asp-for="Adress" placeholder="Adress" class="form-control input-lg" tabindex="3">
-                    <span asp-validation-for="Adress"class="text-danger"></span>
+                    <span asp-validation-for="Adress" class="text-danger"></span>
                     <br />
                 </div>
 
@@ -36,14 +37,14 @@
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
                             <input asp-for="Email" placeholder="E-postadress" class="form-control input-lg" tabindex="4">
-                            <span asp-validation-for="Email"class="text-danger"></span>
+                            <span asp-validation-for="Email" class="text-danger"></span>
                             <br />
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
                             <input asp-for="Ssn" placeholder="PersNr: YYYYMMDD-XXXX" class="form-control input-lg" tabindex="5">
-                            <span asp-validation-for="Ssn"class="text-danger"></span>
+                            <span asp-validation-for="Ssn" class="text-danger"></span>
                             <br />
                         </div>
                     </div>
@@ -53,7 +54,7 @@
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
                             <input asp-for="Password" type="password" placeholder="Lösenord" class="form-control input-lg" tabindex="6">
-                            <span asp-validation-for="Password"class="text-danger"></span>
+                            <span asp-validation-for="Password" class="text-danger"></span>
                             <br />
                         </div>
                     </div>
@@ -61,7 +62,7 @@
                         <div class="form-group">
 
                             <input asp-for="ComparePassword" type="password" placeholder="Bekräfta lösenord" class="form-control input-lg" tabindex="7">
-                            <span asp-validation-for="ComparePassword"class="text-danger"></span>
+                            <span asp-validation-for="ComparePassword" class="text-danger"></span>
                             <br />
                         </div>
                     </div>
@@ -73,19 +74,24 @@
                         <small>Användarvillkor</small>
                         <span asp-validation-for="AcceptTerms" class="text-danger"></span>
                         @*<span class="button-checkbox">
-                            <button type="button" class="btn" data-color="info" tabindex="7">Användarvillkor</button>
-                            <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
-                        </span>*@
+                                <button type="button" class="btn" data-color="info" tabindex="7">Användarvillkor</button>
+                                <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
+                            </span>*@
                     </div>
                     <div class="col-xs-8 col-sm-9 col-md-9">
                         <small>Då du klickar i checkboxen och klickar på <strong class="label label-primary">Registrera</strong> accepterar du de <a href="t_and_c_m" data-toggle="modal" data-target="t_and_c_m">användarvillkor</a> Ledningen har arbetat fram. Detta inkluderar vårat suspekta användade av Cookies.</small>
                     </div>
                 </div>
+                <div class="row">
+                    <br />
+                </div>
                 @*<hr class="colorgraph">*@
                 <div class="row">
                     <div class="col-xs-12 col-md-6"><a href="~/customers/login"><input type="submit" value="Registrera" class="btn btn-primary btn-block btn-lg" tabindex="8"></a></div>
                     <div class="col-xs-12 col-md-6"><a href="~/customers/login" class="btn btn-success btn-block btn-lg">Befintligt konto? - Logga in</a></div>
-
+                </div>
+                <div class="row">
+                    <br />
                 </div>
             </form>
         </div>

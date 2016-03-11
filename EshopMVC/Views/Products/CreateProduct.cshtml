@@ -1,8 +1,7 @@
 ﻿@model CreateProductViewModel
-<h1>Register</h1>
-<div asp-validation-summary="ValidationSummary.All"></div>
+@*<div asp-validation-summary="ValidationSummary.All"></div>*@
 
-<form asp-controller="Home" asp-action="CreateProduct">
+@*<form asp-controller="Home" asp-action="CreateProduct">
     <label asp-for="ProductName"></label>
     <br />
     <input asp-for="ProductName" placeholder="Produktnamn" />
@@ -17,9 +16,9 @@
     <span asp-validation-for="Price"></span>
     <br />
 
-    @*@Html.EnumDropDownListFor(model => model.Category)*@
-    @*@Html.DropDownListFor(m => m, Html.GetEnumSelectList(Model.GetType()))*@
-    <label asp-for="Category"></label>
+   tml.EnumDropDownListFor(model => model.Category)
+    @Html.DropDownListFor(m => m, Html.GetEnumSelectList(Model.GetType()))
+    @*<label asp-for="Category"></label>
     <br />
     <input asp-for="Category" placeholder="Produktkategori" />
     <br />
@@ -48,4 +47,68 @@
     <br />
 
     <input type="submit" value="CreateProduct" />
-</form>
+</form>*@
+
+<div class="container">
+        <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <form asp-controller="Home" asp-action="CreateProduct">
+                <h2>Registrera Vara <small></small></h2>
+                <div class="row">
+                    <br />
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input asp-for="ProductName" placeholder="Produktnamn" class="form-control input-lg" tabindex="1">
+                            <span asp-validation-for="ProductName" class="text-danger"></span>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input asp-for="Price" placeholder="Pris exkl. moms" class="form-control input-lg" tabindex="2">
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input asp-for="ProductDescription" placeholder="Produktbeskrivning" class="form-control input-lg" tabindex="3">
+                    <span asp-validation-for="ProductDescription" class="text-danger"></span>
+                    <br />
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input asp-for="Category" placeholder="Produktkategori" class="form-control input-lg" tabindex="4" />
+                            <span asp-validation-for="Category" class="text-danger"></span>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input asp-for="AmountToAdd" placeholder="Antal" class="form-control input-lg" tabindex="5" />
+                            <span asp-validation-for="AmountToAdd" class="text-danger"></span>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input asp-for="ImageURL" placeholder="Bildens URL-adress" class="form-control input-lg" tabindex="6" />
+                    <span asp-validation-for="ImageURL" class="text-danger"></span>
+                    <br />
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6"></div>
+                        <div class="col-xs-6"><input type="submit" value="Lägg till vara" class="btn btn-primary btn-block btn-lg" tabindex="8"></a></div>
+                    </div>
+                <div class="row">
+                    <br />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
