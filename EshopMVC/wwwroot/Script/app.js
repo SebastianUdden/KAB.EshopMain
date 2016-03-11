@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+﻿var myApp = angular.module('myApp', []);
+
+$(document).ready(function () {
     $('.collapse').on('shown.bs.collapse', function () {
         $(this).parent().find(".glyphicon-plus").removeClass("glyphicon-plus").addClass("glyphicon-minus");
     }).on('hidden.bs.collapse', function () {
