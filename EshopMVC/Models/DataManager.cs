@@ -44,7 +44,7 @@ namespace EshopMVC.Models
                 Password = x.Password,
                 Adress = x.Adress,
                 Ssn = x.Ssn
-            }).Where(x=>x.Email == email && x.Password == password ).ToArray()/*.Where(x => x.Id == id)*/;
+            }).Where(x => x.Email == email && x.Password == password).ToArray()/*.Where(x => x.Id == id)*/;
             return Customer;
         }
 
