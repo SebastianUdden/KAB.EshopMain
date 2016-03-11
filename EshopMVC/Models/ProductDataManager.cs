@@ -113,9 +113,7 @@ namespace EshopMVC.Models
         }
         public void RegisterCheckout()
         {
-            var orderdatamanager = new OrdersDataManager(new OrdersContext());
-            var orderId = orderdatamanager.CreateOrder();
-            var orderdetaildatamanager = new OrderDetailDataManager(new OrderDetailContext());
+            var orderId = CreateOrder();
             foreach (var item in ShoppingCartList)
             {
                 var p = new OrderDetail();
@@ -124,10 +122,18 @@ namespace EshopMVC.Models
                 p.CurrentPrice = item.Price;
                 p.OrderId = orderId;
 
-                orderdetaildatamanager.CreateOrderDetail(p);
-
+                Context.OrderDetails.Add(p);
+                Context.SaveChanges();
             }
+        }
+        public int CreateOrder()
+        {
+            DateTime dateTime = DateTime.Now;
+            var o = new Order();
+            Context.Orders.Add(o);
+            Context.SaveChanges();
 
+            return Context.Orders.Last().Id;
         }
     }
 }

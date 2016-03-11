@@ -13,11 +13,11 @@ namespace EshopMVC.Models
         {
             this.Context = context;
         }
-        public void CreateOrderDetail(OrderDetail det)
-        {
-            Context.OrderDetails.Add(det);
-            Context.SaveChanges();
-        }
+        //public void CreateOrderDetail(OrderDetail det)
+        //{
+        //    Context.OrderDetails.Add(det);
+        //    Context.SaveChanges();
+        //}
 
 
 
