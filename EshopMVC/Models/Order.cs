@@ -7,8 +7,8 @@ namespace EshopMVC.Models
 {
     public class Order
     {
-        public string Comment{ get; set; }
-        public int Id{ get; set; }
+        public string Comment { get; set; }
+        public int Id { get; set; }
         public DateTime Date { get; set; }
         public int CustomerId { get; set; }
     }

@@ -131,5 +131,10 @@ namespace EshopMVC.Models
 
             return Context.Orders.Last().Id;
         }
+
+        //public List<OrderHistory> GetOrderHistory(int id)
+        //{
+            
+        //}
     }
 }

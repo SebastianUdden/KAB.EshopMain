@@ -12,6 +12,8 @@ namespace EshopMVC.Models
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
 
+        public DbSet<OrderHistory> OrderHistory { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().ToTable("Products");
@@ -19,6 +21,7 @@ namespace EshopMVC.Models
             modelBuilder.Entity<OrderDetail>().ToTable("OrderDetail");
             //modelBuilder.Entity<Order>().ToTable("Orders");
             //modelBuilder.Entity<OrderDetail>().ToTable("OrderDetails");
+
         }
     }
 }
