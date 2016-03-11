@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 
-<html>
+<html ng-app="myApp">
 <head>
     <title>KAB - Kontorsbutiken online</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -9,10 +9,11 @@
 
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
     <link href="~/css/superstil.css" rel="stylesheet" />
-    <script src="//code.angularjs.org/1.3.0-rc.1/angular.min.js"></script>
-    <script src="//code.angularjs.org/1.5.0-rc.2/angular-route.min.js"></script>
-    <script src="//code.angularjs.org/1.5.0-rc.2/angular-resource.min.js"></script>
-    <script src="jcs-auto-validate.min.js"></script>
+    @*<script src="//code.angularjs.org/1.5.0-rc.2/angular-route.min.js"></script>
+        <script src="//code.angularjs.org/1.5.0-rc.2/angular-resource.min.js"></script>*@
+    @*<script src="jcs-auto-validate.min.js"></script>*@
+
+    <script src="~/script/app.js"></script>
     <script src="~/script/jquery.min.js"></script>
     <script src="~/script/jquery.validate.min.js"></script>
     <script src="~/script/jquery.validate.unobtrusive.js"></script>
@@ -21,7 +22,7 @@
     <script src="~/script/superstil.js"></script>
     <link href="~/css/app.css" rel="stylesheet" />
 </head>
-<body ng-app="myApp">
+<body>
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -33,7 +34,7 @@
                                     <div class="col-xs-12">
                                         <div class="row">
                                             <div class="container-fluid">
-                                                <br />  
+                                                <br />
                                                 <div class="nav navbar-nav navbar">
                                                     <div class="col-xs-6">
                                                         <div class="navbar-header">
@@ -42,7 +43,7 @@
                                                                 <a href="~/home/index">
                                                                     <img class="img-responsive2"
                                                                          src="~/photos/litenkab.png">
-                                                                    <br/>
+                                                                    <br />
                                                                     <a class="col-xs-12 col-xs-offset-5" style="color:white;font-size:larger">Kontorsprylar AB</a>
                                                                 </a>
                                                             </a>
@@ -54,8 +55,9 @@
                                                             <span class="input-group-btn">
                                                                 <a href="~/products/search/" class="btn btn-primary">
                                                                     @*<a href='@Url.Action("Search", "Products", searchQuery)' class="btn btn-primary">*@
-                                                                        <span style="clear:both" class="glyphicon glyphicon-search"></span>
-                                                                    </a>&nbsp&nbsp&nbsp&nbsp</span>
+                                                                    <span style="clear:both" class="glyphicon glyphicon-search"></span>
+                                                                </a>&nbsp&nbsp&nbsp&nbsp
+                                                            </span>
                                                         </div>
                                                         <p>{{ searchQuery }}</p>
                                                     </div>
@@ -92,6 +94,7 @@
                 </header>
             </div>
         </div>
+
         <div class="row">
             <div class="col-xs-2">
                 <div id="bulletWrapper">
@@ -122,10 +125,6 @@
         </div>
     </div>
     <script>
-        var app = angular.module('myApp', [
-    'jcs-autoValidate',
-        ]);
-
         $(function () {
             $('.button-checkbox').each(function () {
 
