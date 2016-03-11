@@ -85,6 +85,22 @@ namespace EshopMVC.Models
             }
         }
 
+        public ProductListViewModel[] GetProductByQuery(string searchQuery)
+        {
+            var productList = Context.Products.Select(x => new ProductListViewModel
+            {
+                Id = x.Id,
+                ProductName = x.ProductName,
+                ProductDescription = x.ProductDescription,
+                Price = x.Price,
+                ImageURL = x.PictureLink,
+                Stock = x.Stock,
+                CategoryId = x.CategoryId
+            }).ToArray();
+
+            return productList.Where(x => x.ProductName.ToLower().Contains(searchQuery.ToLower())).ToArray();
+        } 
+
         public List<ProductListViewModel> ShoppingCart()
         {
             if (ShoppingCartList.Count == 0)

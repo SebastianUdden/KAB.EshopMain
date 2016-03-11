@@ -17,39 +17,47 @@
     <script src="~/script/jquery.validate.min.js"></script>
     <script src="~/script/jquery.validate.unobtrusive.js"></script>
     <script src="~/bower_components/microsoft.jquery.unobtrusive.validation/jquery.validate.unobtrusive.min.js"></script>
-    <script src="app.js"></script>
+    <script src="~/script/app.js"></script>
     <script src="~/script/superstil.js"></script>
     <link href="~/css/app.css" rel="stylesheet" />
 </head>
-<body>
+<body ng-app="myApp">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <header>
                     <div class="containerLeft">
                         <nav class="navbar navbar-default">
-                            <div ng-controller="headerController">
+                            <div>
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="row">
                                             <div class="container-fluid">
-                                                <br />
+                                                <br />  
                                                 <div class="nav navbar-nav navbar">
                                                     <div class="col-xs-6">
                                                         <div class="navbar-header">
-                                                            <a class="navbar-brand" href="~/home/index" style="font-size:40px">KAB @*<span class="glyphicon glyphicon-home"></span>*@</a>
-
+                                                            @*<a class="navbar-brand" href="~/home/index" style="font-size:40px">KAB @*<span class="glyphicon glyphicon-home"></span></a>*@
+                                                            <a class="navbar-brand brand-name">
+                                                                <a href="~/home/index">
+                                                                    <img class="img-responsive2"
+                                                                         src="~/photos/litenkab.png">
+                                                                    <br/>
+                                                                    <a class="col-xs-12 col-xs-offset-5" style="color:white;font-size:larger">Kontorsprylar AB</a>
+                                                                </a>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-6">
                                                         <div class="input-group">
-                                                            <input type="text" class="form-control" ng-model="searchResult" />
+                                                            <input type="text" class="form-control" />
                                                             <span class="input-group-btn">
-                                                                <a href="#/search-results" class="btn btn-primary">
-                                                                    <span style="clear:both" class="glyphicon glyphicon-search"></span>
-                                                                </a>&nbsp&nbsp&nbsp&nbsp
-                                                            </span>
+                                                                <a href="~/products/search/" class="btn btn-primary">
+                                                                    @*<a href='@Url.Action("Search", "Products", searchQuery)' class="btn btn-primary">*@
+                                                                        <span style="clear:both" class="glyphicon glyphicon-search"></span>
+                                                                    </a>&nbsp&nbsp&nbsp&nbsp</span>
                                                         </div>
+                                                        <p>{{ searchQuery }}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -64,7 +72,7 @@
                                             <li><a href="~/products/createproduct">&nbsp&nbsp<span class="glyphicon glyphicon-link"></span> Produktregistrering</a></li>
                                             @if (Context.Request.Cookies["FirstName"].Count != 0)
                                             {
-                                                <li><a>&nbsp&nbsp<span class="glyphicon glyphicon-briefcase"></span> Welcome @Context.Request.Cookies["FirstName"].First() </a></li>
+                                                <li><a href="~/customers/mypages">&nbsp&nbsp<span class="glyphicon glyphicon-briefcase"></span> Welcome @Context.Request.Cookies["FirstName"].First() </a></li>
                                                 <li><a href="~/customers/logout">&nbsp&nbsp<span class="glyphicon glyphicon-briefcase"></span> Log out </a></li>
                                             }
                                             else
@@ -91,7 +99,7 @@
                         <li><a href="~/products/productcategory/2"><span class="glyphicon glyphicon-pencil"></span> Pennor</a></li>
                         <li><a href="~/products/productcategory/3"><span class="glyphicon glyphicon-envelope"></span> Papper</a></li>
                         <li><a href="~/products/productcategory/4"><span class="glyphicon glyphicon-paperclip"></span> Skrivare</a></li>
-                        <li><a href="~/products/productcategory/5"><span class="glyphicon glyphicon-cutlery"></span> Kök</a></li>
+                        <li><a href="~/products/productcategory/5"><span class="glyphicon glyphicon-cutlery"></span> Kökartiklar</a></li>
                         <li><a href="~/products/productcategory/6"><span class="glyphicon glyphicon-globe"></span> Övrigt</a></li>
                     </ul>
                 </div>
@@ -114,6 +122,10 @@
         </div>
     </div>
     <script>
+        var app = angular.module('myApp', [
+    'jcs-autoValidate',
+        ]);
+
         $(function () {
             $('.button-checkbox').each(function () {
 

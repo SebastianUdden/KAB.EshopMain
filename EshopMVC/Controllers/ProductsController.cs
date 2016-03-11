@@ -86,5 +86,12 @@ namespace EshopMVC.Controllers
             return RedirectToAction(nameof(CustomersController.Index));
 
         }
+
+        public IActionResult Search(string id)
+        {
+            var productDataManager = new ProductDataManager(Context);
+            var model = productDataManager.GetProductByQuery(id);
+            return View(model);
+        }
     }
 }
