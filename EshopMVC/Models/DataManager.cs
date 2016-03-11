@@ -45,5 +45,10 @@ namespace EshopMVC.Models
             }).Where(x=>x.Email == email && x.Password == password ).ToArray()/*.Where(x => x.Id == id)*/;
             return Customer;
         }
+
+        public void ManageAccount(ChangePasswordViewModel viewModel)
+        {
+            //stored procedure?
+        }
     }
 }

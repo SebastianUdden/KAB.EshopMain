@@ -91,5 +91,11 @@ namespace EshopMVC.Controllers
 
             return RedirectToAction(nameof(CustomersController.Login));
         }
+        //public IActionResult ManageAccount()
+        //{
+        //    var dataManager = new DataManager(context);
+        //    dataManager.ManageAccount();
+        //    return View()
+        //}
     }
 }
