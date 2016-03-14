@@ -6,6 +6,17 @@ $(document).ready(function () {
     }).on('hidden.bs.collapse', function () {
         $(this).parent().find(".glyphicon-minus").removeClass("glyphicon-minus").addClass("glyphicon-plus");
     });
+    $('#searchButton').click(function () {
+        var search = $('#usersSearch').val();
+        $.post('../searchusers.php', { search: search }, function (response) {
+            $('#userSearchResultsTable').html(response);
+        });
+    })
+    $('#usersSearch').keypress(function (e) {
+        if (e.which == 13) {//Enter key pressed
+            $('#searchButton').click();//Trigger search button click event
+        }
+    });
 });
 
 //app.run(function (defaultErrorMessageResolver) {
