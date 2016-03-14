@@ -1,5 +1,5 @@
 ﻿@model CreateCustomerViewModel
-
+<script src="~/script/bootstrap.js"></script>
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-6 col-xs-offset-1">
@@ -79,7 +79,7 @@
                             </span>*@
                     </div>
                     <div class="col-xs-8 col-sm-9 col-md-9">
-                        <small>Då du klickar i checkboxen och klickar på <strong class="label label-primary">Registrera</strong> accepterar du de <a href="t_and_c_m" data-toggle="modal" data-target="t_and_c_m">användarvillkor</a> Ledningen har arbetat fram. Detta inkluderar vårat suspekta användade av Cookies.</small>
+                        <small>Då du klickar i checkboxen och klickar på <strong class="label label-primary">Registrera</strong> accepterar du de <a href="#" data-toggle="modal" data-target="#modal">användarvillkor</a> Ledningen har arbetat fram. Detta inkluderar vårat suspekta användade av Cookies.</small>
                     </div>
                 </div>
                 <div class="row">
@@ -97,7 +97,7 @@
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
