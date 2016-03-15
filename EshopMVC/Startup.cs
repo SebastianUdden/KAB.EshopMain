@@ -14,7 +14,7 @@ namespace EshopMVC
     public class Startup
     {
         // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
+        // For more information on how  configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
             var connString = @"Data Source = kab.database.windows.net; Initial Catalog = KAB; Integrated Security = False; User ID = Kolumn3; Password = Samal073; Connect Timeout = 60; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
